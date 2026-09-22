@@ -14,7 +14,7 @@ from app.core.utils import (
     send_email,
     verify_password_reset_token,
 )
-from app.models import Message, NewPassword, Token, UserPublic, UserUpdate
+from app.schemas import Message, NewPassword, Token, UserPublic, UserUpdate
 from app.services import authenticate, get_user_by_email, update_user
 
 router = APIRouter(tags=["login"])

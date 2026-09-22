@@ -1,22 +1,12 @@
 from __future__ import annotations
 
 import uuid
-from datetime import UTC, datetime
-from typing import TYPE_CHECKING
+from datetime import datetime
 
-from pydantic import EmailStr
-from sqlalchemy import DateTime
-from sqlmodel import Field, Relationship, SQLModel
-
-if TYPE_CHECKING:
-    from .item import Item
+from pydantic import ConfigDict, EmailStr
+from sqlmodel import Field, SQLModel
 
 
-def get_datetime_utc() -> datetime:
-    return datetime.now(UTC)
-
-
-# Shared properties
 class UserBase(SQLModel):
     email: EmailStr = Field(
         unique=True,
@@ -43,8 +33,19 @@ class UserBase(SQLModel):
     )
 
 
-# Properties to receive via API on creation
 class UserCreate(UserBase):
+    model_config = ConfigDict(
+        json_schema_extra={
+            "example": {
+                "email": "john.doe@example.com",
+                "password": "StrongPass!123",
+                "full_name": "John Doe",
+                "is_active": True,
+                "is_superuser": False,
+            }
+        }
+    )
+
     password: str = Field(
         min_length=8,
         max_length=128,
@@ -54,6 +55,15 @@ class UserCreate(UserBase):
 
 
 class UserRegister(SQLModel):
+    model_config = ConfigDict(
+        json_schema_extra={
+            "example": {
+                "email": "new.user@example.com",
+                "password": "SecureP@ss456",
+                "full_name": "New User",
+            }
+        }
+    )
     email: EmailStr = Field(
         max_length=255,
         description="User email to register with.",
@@ -73,8 +83,18 @@ class UserRegister(SQLModel):
     )
 
 
-# Properties to receive via API on update, all are optional
 class UserUpdate(SQLModel):
+    model_config = ConfigDict(
+        json_schema_extra={
+            "example": {
+                "email": "updated.email@example.com",
+                "is_active": True,
+                "is_superuser": False,
+                "full_name": "Jane Doe",
+                "password": "AnotherStrongPass!456",
+            }
+        }
+    )
     email: EmailStr | None = Field(
         default=None,
         max_length=255,
@@ -107,6 +127,15 @@ class UserUpdate(SQLModel):
 
 
 class UserUpdateMe(SQLModel):
+    model_config = ConfigDict(
+        json_schema_extra={
+            "example": {
+                "full_name": "Jane Smith",
+                "email": "jane.smith@example.com",
+            }
+        }
+    )
+
     full_name: str | None = Field(
         default=None,
         max_length=255,
@@ -122,6 +151,14 @@ class UserUpdateMe(SQLModel):
 
 
 class UpdatePassword(SQLModel):
+    model_config = ConfigDict(
+        json_schema_extra={
+            "example": {
+                "current_password": "OldPass!123",
+                "new_password": "NewStrongPass!456",
+            }
+        }
+    )
     current_password: str = Field(
         min_length=8,
         max_length=128,
@@ -136,34 +173,6 @@ class UpdatePassword(SQLModel):
     )
 
 
-# Database model, database table inferred from class name
-class User(UserBase, table=True):
-    id: uuid.UUID = Field(
-        default_factory=uuid.uuid4,
-        primary_key=True,
-        description="Unique identifier for the user.",
-        schema_extra={"example": "6a5d5a7e-4f8d-4b2a-9bd7-2e8a3f1c5b8a"},
-    )
-    hashed_password: str = Field(
-        description="Hashed password stored in the database.",
-        schema_extra={"example": "$argon2id$..."},
-    )
-    created_at: datetime | None = Field(
-        default_factory=get_datetime_utc,
-        sa_type=DateTime(timezone=True),  # type: ignore
-        description="Timestamp when the user record was created.",
-        schema_extra={"example": "2026-09-22T10:00:00Z"},
-    )
-    updated_at: datetime | None = Field(
-        default=None,
-        sa_type=DateTime(timezone=True),  # type: ignore
-        description="Timestamp when the user record was last updated. Empty until first update.",
-        schema_extra={"example": "2026-09-23T10:00:00Z"},
-    )
-    items: list[Item] = Relationship(back_populates="owner", cascade_delete=True)
-
-
-# Properties to return via API, id is always required
 class UserPublic(UserBase):
     id: uuid.UUID = Field(
         description="Unique identifier for the user.",

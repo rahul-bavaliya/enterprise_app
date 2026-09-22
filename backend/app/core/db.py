@@ -1,7 +1,8 @@
 from sqlmodel import Session, create_engine, select
 
 from app.core.config import settings
-from app.models import User, UserCreate
+from app.models import User
+from app.schemas import UserCreate
 from app.services import create_user
 
 engine = create_engine(str(settings.DATABASE_URL), pool_pre_ping=True)

@@ -1,13 +1,8 @@
 import uuid
-from datetime import UTC, datetime
+from datetime import datetime
 
 from pydantic import ConfigDict
-from sqlalchemy import DateTime
 from sqlmodel import Field, SQLModel
-
-
-def get_datetime_utc() -> datetime:
-    return datetime.now(UTC)
 
 
 class BranchBase(SQLModel):
@@ -71,27 +66,6 @@ class BranchUpdate(SQLModel):
         default=None,
         description="Updated active status for the branch.",
         schema_extra={"example": False},
-    )
-
-
-class Branch(BranchBase, table=True):
-    id: uuid.UUID = Field(
-        default_factory=uuid.uuid4,
-        primary_key=True,
-        description="Unique identifier for the branch.",
-        schema_extra={"example": "f24bf9d7-c4a1-4448-b895-3ad5f9d3bb4d"},
-    )
-    created_at: datetime | None = Field(
-        default_factory=get_datetime_utc,
-        sa_type=DateTime(timezone=True),  # type: ignore
-        description="Timestamp when the branch record was created.",
-        schema_extra={"example": "2026-09-22T10:00:00Z"},
-    )
-    updated_at: datetime | None = Field(
-        default=None,
-        sa_type=DateTime(timezone=True),  # type: ignore
-        description="Timestamp when the branch record was last updated. Empty until first update.",
-        schema_extra={"example": "2026-09-23T10:00:00Z"},
     )
 
 

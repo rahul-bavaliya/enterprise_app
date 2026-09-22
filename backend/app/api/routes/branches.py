@@ -1,15 +1,10 @@
 import uuid
 from typing import Any
 
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, Body, HTTPException
 
 from app.api.deps import CurrentUser, SessionDep
-from app.models import (
-    BranchCreate,
-    BranchPublic,
-    BranchUpdate,
-    ResponseEnvelope,
-)
+from app.schemas import BranchCreate, BranchPublic, BranchUpdate, ResponseEnvelope
 from app.services.branch import (
     create_branch,
     delete_branch,
@@ -21,7 +16,31 @@ from app.services.branch import (
 router = APIRouter(prefix="/branches", tags=["branches"])
 
 
-@router.get("/", response_model=ResponseEnvelope[list[BranchPublic]])
+@router.get(
+    "/",
+    response_model=ResponseEnvelope[list[BranchPublic]],
+    responses={
+        200: {
+            "description": "Successful Response",
+            "content": {
+                "application/json": {
+                    "example": {
+                        "success": True,
+                        "data": [
+                            {
+                                "id": "f24bf9d7-c4a1-4448-b895-3ad5f9d3bb4d",
+                                "name": "Main Branch",
+                                "location": "New York, NY",
+                                "is_active": True,
+                            }
+                        ],
+                        "message": "Retrieved 1 branch(es)",
+                    }
+                }
+            },
+        }
+    },
+)
 def read_branches(
     session: SessionDep,
     current_user: CurrentUser,
@@ -39,7 +58,29 @@ def read_branches(
     )
 
 
-@router.get("/{id}", response_model=ResponseEnvelope[BranchPublic])
+@router.get(
+    "/{id}",
+    response_model=ResponseEnvelope[BranchPublic],
+    responses={
+        200: {
+            "description": "Successful Response",
+            "content": {
+                "application/json": {
+                    "example": {
+                        "success": True,
+                        "data": {
+                            "id": "f24bf9d7-c4a1-4448-b895-3ad5f9d3bb4d",
+                            "name": "Main Branch",
+                            "location": "New York, NY",
+                            "is_active": True,
+                        },
+                        "message": None,
+                    }
+                }
+            },
+        }
+    },
+)
 def read_branch(
     session: SessionDep,
     current_user: CurrentUser,
@@ -53,12 +94,46 @@ def read_branch(
     return ResponseEnvelope(success=True, data=BranchPublic.model_validate(branch))
 
 
-@router.post("/", response_model=ResponseEnvelope[BranchPublic])
+@router.post(
+    "/",
+    response_model=ResponseEnvelope[BranchPublic],
+    responses={
+        200: {
+            "description": "Successful Response",
+            "content": {
+                "application/json": {
+                    "example": {
+                        "success": True,
+                        "data": {
+                            "id": "f24bf9d7-c4a1-4448-b895-3ad5f9d3bb4d",
+                            "name": "Main Branch",
+                            "location": "New York, NY",
+                            "is_active": True,
+                        },
+                        "message": "Branch created successfully",
+                    }
+                }
+            },
+        }
+    },
+)
 def create_branch_route(
     *,
     session: SessionDep,
     current_user: CurrentUser,
-    branch_in: BranchCreate,
+    branch_in: BranchCreate = Body(
+        ...,
+        examples={
+            "default": {
+                "summary": "Create branch",
+                "value": {
+                    "name": "Main Branch",
+                    "location": "New York, NY",
+                    "is_active": True,
+                },
+            }
+        },
+    ),
 ) -> Any:
     if not current_user.is_superuser:
         raise HTTPException(status_code=403, detail="Not enough permissions")
@@ -66,13 +141,47 @@ def create_branch_route(
     return ResponseEnvelope(success=True, data=BranchPublic.model_validate(branch))
 
 
-@router.patch("/{id}", response_model=ResponseEnvelope[BranchPublic])
+@router.patch(
+    "/{id}",
+    response_model=ResponseEnvelope[BranchPublic],
+    responses={
+        200: {
+            "description": "Successful Response",
+            "content": {
+                "application/json": {
+                    "example": {
+                        "success": True,
+                        "data": {
+                            "id": "f24bf9d7-c4a1-4448-b895-3ad5f9d3bb4d",
+                            "name": "Downtown Branch",
+                            "location": "Los Angeles, CA",
+                            "is_active": False,
+                        },
+                        "message": "Branch updated successfully",
+                    }
+                }
+            },
+        }
+    },
+)
 def update_branch_route(
     *,
     session: SessionDep,
     current_user: CurrentUser,
     id: uuid.UUID,
-    branch_in: BranchUpdate,
+    branch_in: BranchUpdate = Body(
+        ...,
+        examples={
+            "default": {
+                "summary": "Update branch",
+                "value": {
+                    "name": "Downtown Branch",
+                    "location": "Los Angeles, CA",
+                    "is_active": False,
+                },
+            }
+        },
+    ),
 ) -> Any:
     if not current_user.is_superuser:
         raise HTTPException(status_code=403, detail="Not enough permissions")

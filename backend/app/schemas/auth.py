@@ -1,7 +1,6 @@
 from sqlmodel import Field, SQLModel
 
 
-# Generic message
 class Message(SQLModel):
     message: str = Field(
         description="Human-readable status or success message.",
@@ -9,7 +8,6 @@ class Message(SQLModel):
     )
 
 
-# JSON payload containing access token
 class Token(SQLModel):
     access_token: str = Field(
         description="JWT access token used for authenticated API requests.",
@@ -22,7 +20,6 @@ class Token(SQLModel):
     )
 
 
-# Contents of JWT token
 class TokenPayload(SQLModel):
     sub: str | None = Field(
         default=None,
