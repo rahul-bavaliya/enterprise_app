@@ -1,0 +1,245 @@
+﻿Branch Name,Branch Number,Address1,Branch City,Branch Province,PostalCode,Branch Country,Region Name,Latitude,Longitude,BranchJoinKey,Telephone1,Division Name,LOBName
+Adelaide,20,23/25 Matthews Rd,Gepps Cross,SA,5094,AU,Australia,-34.83618692,138.6060488,207,,South Australia,AU-AG
+Admin ON - TT,5,,,ON,,CA,CA Central,,,53,,Transportation ON,CA-TT
+Admin SK - TT,59,,,SK,,CA,CA West,,,593,,Transportation SK,CA-TT
+All Territories,198,,,NT,,CA,CA West,61.1131,-126.305,1981,,Territories,CA-CF
+Ayr - TT,7,7 Cochran Drive,Ayr,ON,N0B 1E0,CA,CA Central,43.33790462,-80.43158272,73,(519) 622-7799,Transportation ON,"CA-TT,CA-TT"
+Baie-Comeau,168,"2014, avenue du Labrador",Baie-Comeau,QC,G4Z 3C1,CA,CA East,49.21145409,-68.23347703,1681,,Eastern Quebec,CA-CF
+Ballarat,5,21 Airport Road,Ballarat,VIC,3355,AU,Australia,-37.51771295,143.8021519,57,03 5334 7555,Southwest Victoria,"AU-AG,AU-CF"
+Barrie,154,35 Line 4 South RR#1,Oro-Medonte,ON,L0L 2L0,CA,CA Central,44.45919898,-79.57982425,1541,,South Central Ontario,CA-CF
+Barrie - TT,17,3269 Thomas Street,Barrie,ON,L9S 3W5,CA,CA Central,44.29751212,-79.66992314,173,(705) 431-7175,Transportation ON,"CA-TT,CA-TT"
+Bassano - AG,312,Old Highway 1,Bassano,AB,T0J 0B0,CA,CA West,50.78842611,-112.449788,3121,(403) 641-3813,Southern Alberta,CA-AG
+Bathurst,141,3338 Route 134,Bathurst,NB,E8L 1T8,CA,CA East,47.56821554,-65.57602039,1411,,Atlantic Division,CA-CF
+Belleville - TT,21,107b Bellevue Dr,Belleville,ON,K8N 4Z5,CA,CA Central,44.18146447,-77.44262718,213,,Transportation ON,"CA-TT,CA-TT"
+Bordertown,16,3 Cleggett Rd,Bordertown,SA,5268,AU,Australia,-36.31009261,140.7393448,167,(08) 8750 1000,Southwest Victoria - CF,"AU-CF,AU-AG"
+Brandon,999,1825 18th Street North,Brandon,MB,R7C 1A6,CA,CA West,49.88210926,-99.9607397,9991,,Saskatchewan / Manitoba Division,CA-CF
+Brandt Finance,50,,,,,AU,Australia,,,507,,Corporate Services - AU,AU-AG
+Brandt Finance,50,,,,,NZ,New Zealand,,,508,,Corporate Services - NZ,NZ-AG
+Brandt Rentals,63,,,,,AU,Australia,,,637,,Corporate Services - AU,AU-AG
+Brandt Rentals,63,,,,,NZ,New Zealand,,,638,,Corporate Services - NZ,"NZ-AG,NZ-AG"
+Brooks - AG,311,Highway 873 North,Brooks,AB,T1R 1B7,CA,CA West,50.60036225,-111.8952788,3111,(403) 362-3486,Southern Alberta,CA-AG
+Brossard,162,3855 Boul. Matte,Brossard,QC,J4Y 2Z2,CA,CA East,45.43075181,-73.46040489,1621,,Western Quebec,CA-CF
+BTRT Admin - TT,79,,,SK,,CA,CA West,,,793,,BTRT,CA-TT
+BTRT Ayr - TT,83,7 Cochran Dr,Ayr,ON,N0B 1E0,CA,CA Central,43.33791242,-80.43175438,833,,BTRT,CA-TT
+BTRT Barrie - TT,87,3269 Thomas St,Innisfil,ON,L9S 3W5,CA,CA Central,44.30110575,-79.65287503,873,,BTRT,CA-TT
+BTRT Calgary - TT,72,10121 Barlow Trail NE,Calgary,AB,T3J 3C6,CA,CA West,51.14575326,-114.0025815,723,,BTRT,CA-TT
+BTRT Cardinal - TT,91,"2085 Shanly Road, 22",Cardinal,ON,K0E 1E0,CA,CA Central,44.80897709,-75.40228095,913,,BTRT,CA-TT
+BTRT Estevan - TT,78,1 Frontier Street,Estevan,SK,S4A 2K9,CA,CA West,49.13134927,-102.9225123,783,,BTRT,CA-TT
+BTRT Grande Prairie - TT,74,7101 102 St,Clairmont,AB,T8X 5A7,CA,CA West,55.23218922,-118.7979354,743,,BTRT,CA-TT
+BTRT Hagersville - TT,89,4011 Hwy 6,Hagersville,ON,N0A 1H0,CA,CA Central,42.96970068,-80.04682239,893,,BTRT,CA-TT
+BTRT Kamloops - TT,95,8110 Dallas Dr,Kamloops,BC,V2C 6X2,CA,CA West,50.65867253,-120.1125553,953,,BTRT,CA-TT
+BTRT Lloydminster - TT,77,5201 40 Ave,Lloydminster,SK,S9V 2B5,CA,CA West,53.28468809,-109.9786012,773,,BTRT,CA-TT
+BTRT London - TT,81,31 Buchanan Ct,London,ON,N5Z 4P9,CA,CA Central,42.93656375,-81.18586124,813,,BTRT,CA-TT
+BTRT Mississauga - TT,84,1257 Eglinton Ave E,Mississauga,ON,L4W 1K7,CA,CA Central,43.6335592,-79.62423105,843,,BTRT,CA-TT
+BTRT Nisku - TT,71,,Nisku,AB,T9E 0W8,CA,CA West,53.33222138,-113.5439252,713,,BTRT,CA-TT
+BTRT North Bay - TT,82,3410 ON-11,North Bay,ON,P1B 8G3,CA,CA Central,46.36581657,-79.46498047,823,,BTRT,CA-TT
+BTRT Regina - TT,76,1507 Ross Ave E,Regina,SK,S4N 7E5,CA,CA West,50.46495255,-104.5639671,763,,BTRT,CA-TT
+BTRT Rentals - TT,73,,,AB,,CA,CA West,,,733,,BTRT,CA-TT
+BTRT Saskatoon - TT,75,303 50 St E,Saskatoon,SK,S7K 6C1,CA,CA West,52.16968858,-106.6662106,753,,BTRT,CA-TT
+BTRT Stoney Creek - TT,86,924 S Service Rd,Stoney Creek,ON,L8E 6A2,CA,CA Central,43.22481121,-79.67226719,863,,BTRT,CA-TT
+BTRT Sudbury - TT,88,184 Fielding Rd,Lively,ON,P3Y 1L6,CA,CA Central,46.43678012,-81.09806022,883,,BTRT,CA-TT
+BTRT Vars - TT,92,275 Corduroy Rd,Vars,ON,K0A 3H0,CA,CA Central,45.32688284,-75.35533993,923,,BTRT,CA-TT
+BTRT Whitby - TT,85,1311 Hopkins St,Whitby,ON,L1N 2C2,CA,CA Central,43.87281026,-78.91671983,853,,BTRT,CA-TT
+Calgary,104,333 96 Ave Trail NE,Calgary,AB,T3K 0S3,CA,CA West,51.14019484,-114.0638024,1041,403-567-0339,Southern Alberta Division,CA-CF
+Cambridge,159,365 Industrial Road,Cambridge,ON,N3H 5S1,CA,CA Central,43.40893133,-80.33413815,1591,,Southwest Ontario,CA-CF
+Cambridge_NZ,25,169 State Highway 1B,Cambridge,WKO,3493,NZ,New Zealand,-37.86610922,175.4580274,258,,North Island North,"NZ-AG,NZ-AG"
+Campbell River,115,1821 14TH AVE,Campbell River,BC,V9W 4H9,CA,CA West,50.02862562,-125.2688104,1151,250-286-0614,BC Coastal Division,CA-CF
+Cardinal - TT,13,2085 Shanly Road (County Road 22),Cardinal,ON,K0E 1E0,CA,CA Central,44.80897709,-75.40166941,133, (613) 657-1300,Transportation ON,"CA-TT,CA-TT"
+Castlegar,116,4130 MINTO RD,Castlegar,BC,V1N 4C1,CA,CA West,49.25844141,-117.6576431,1161,250-365-6747,Interior BC Division,CA-CF
+Chicoutimi,164,"1430, boulevard du Royaume O., CP 8270",Chicoutimi,QC,G7H 5B1,CA,CA East,48.38811159,-71.11799751,1641,,Eastern Quebec,CA-CF
+Claresholm - AG,309,8500 Alberta Road,Claresholm,AB,T0L 0T0,CA,CA West,50.049317,-113.5942582,3091,(403) 625-4421,Southern Alberta,CA-AG
+Colac,11,3/345 Princes Hwy,Colac,VIC,3250,AU,Australia,-38.33543594,143.5536643,117,03 5231 6320,Southwest Victoria,"AU-AG,AU-CF"
+Corner Brook,171,"12 Maple Valley Road, Unit 1",Corner Brook,NL,A2H 3C2,CA,CA East,48.95422213,-57.91774069,1711,,NFLD & Lab,CA-CF
+Coronation - AG,305,4420 Victoria Avenue,Coronation,AB,T0C 1C0,CA,CA West,52.08915032,-111.4362017,3051,(403) 578-3744,Central Alberta,CA-AG
+Corp - AG,1009,,Regina,SK,,CA,,,,10092,,Southwest Victoria,"AU-AG,AU-AG"
+Corp – Construction,1000,,Edmonton,AB,,CA,,53.5361,-113.4933,10001,,Northern Alberta Division,"CA-CF,AU-AG"
+Corp – Forestry,1001,,Edmonton,AB,,CA,,53.5354,-113.4843,10011,,Northern Alberta Division,"CA-CF,AU-AG"
+Corp – Gov,1005,,Edmonton,AB,,CA,,53.5354,-113.4933,10051,,Northern Alberta Division,"CA-CF,AU-AG"
+Corp - MH,1010,,Regina,SK,,CA,,,,10101,,Saskatchewan / Manitoba Division,CA-CF
+Corp – Mining,1007,,Edmonton,AB,,CA,,53.5444,-113.4909,10071,,Northern Alberta Division,"CA-CF,AU-AG"
+Corp – R&M,1008,,Edmonton,AB,,CA,,53.4713,-113.475,10081,,Northern Alberta Division,"CA-CF,AU-AG"
+Corp – SC,1003,,Edmonton,AB,,CA,,53.5461,-113.4923,10031,,Northern Alberta Division,"CA-CF,AU-AG"
+Corp - SLS SPT,1006,,Regina,SK,,CA,,50.4481,-104.61,10061,,Northern Alberta Division,"CA-CF,AU-AG"
+Corp – VP,1004,,Edmonton,AB,,CA,,53.5444,-113.4909,10041,,Northern Alberta Division,"CA-CF,AU-AG"
+Corp – WPS,1002,,Edmonton,AB,,CA,,53.5461,-113.4923,10021,,Northern Alberta Division,"CA-CF,CA-AG"
+Corporate,149,1 Brandt Wy,Regina,SK,S4P 3R8,CA,CA East,50.44883869,-104.4935107,1491,,Head Office - East Division,CA-CF
+Corporate - East,195,1 Brandt Wy,Regina,SK,S4P 3R8,CA,CA East,50.44883869,-104.4935107,1951,,Head Office - East Division,CA-CF
+Corporate Pool - Central,201,,Mississauga,ON,,CA,CA East,,,2011,,Head Office - Central Division,CA-CF
+Corporate Pool - East,200,,,SK,,CA,CA East,52.9399,-102.3936,2001,,Head Office - East Division,CA-CF
+Corporate Pool - West,147,,Regina,SK,,CA,CA West,,,1471,,Head Office Division - CF,CA-CF
+Corporate Services,71,,,,,AU,Australia,,,717,,Corporate Services - AU,AU-AG
+Corporate Services,71,,,,,NZ,New Zealand,,,718,,Corporate Services - NZ,"NZ-AG,NZ-AG"
+CPW - Calgary,145,10121 Barlow Trail NE,Calgary,AB,T3J 3C6,CA,CA West,51.14565529,-114.0022054,1451,,Head Office - Central Division,CA-CF
+CPW - Calgary,345,10121 Barlow Trail NE,Calgary,AB,T3J 3C6,CA,CA West,51.1456351,-114.0031496,3451,,Head Office Division - AG,CA-AG
+CPW - Mississauga,194,1655 Britannia Rd E,Mississauga,ON,L4W 1S5,CA,CA Central,43.65943432,-79.64396564,1941,,Head Office - East Division,CA-CF
+CPW - Moncton,138,160 Urquhart Ave,Moncton,NB,E1H 2R5,CA,CA East,46.12854458,-64.75169931,1381,,Head Office Division - CF,CA-CF
+Cranbrook,119,604 Industrial Road #3,Cranbrook,BC,V1C 4V2,CA,CA West,49.52232071,-115.7685287,1191,250-426-3400,Southern Alberta Division,CA-CF
+Creston - AG,310,1617 Northwest Blvd,Creston,BC,V0B 1G6,CA,CA West,49.11616138,-116.5235187,3101,(250) 431-9002,Southern Alberta,CA-AG
+Drumheller - AG,313,3049 Highway 10 East,Drumheller,AB,T0J 0Y7,CA,CA West,51.42856955,-112.6494543,3131,(403) 823-8484,Central Alberta,CA-AG
+Dryden,173,329 Kennedy Street,Dryden,ON,P8N 2Y5,CA,CA Central,49.79840788,-92.84790131,1731,,Northern Ontario,CA-CF
+East Pool,197,,,SK,,CA,CA East,52.1233,-106.6633,1971,,Head Office - East Division,CA-CF
+Edmonton,106,10630 - 176TH ST,Edmonton,AB,T5S 1M2,CA,CA West,53.55250723,-113.624874,1061,780-484-6613,Northern Alberta Division,CA-CF
+Edmonton CCE,190,10571-178 Street,Edmonton,AB,T5S 2K4,CA,CA West,53.54992716,-113.6259217,1901,,Northern Alberta Division,CA-CF
+Edmundston,169,"680, Blvd Isidore-Boucher",Edmundston,NB,E3V 4H6,CA,CA East,47.40389839,-68.3621116,1691,,Atlantic Division,CA-CF
+Equipment Sales and PM,148,,,SK,,CA,CA West,52.9399,-102.3936,1481,,Head Office - Central Division,CA-CF
+Equipment Sales and PM- AG,348,,Regina,SK,,CA,CA West,,,3481,,Head Office Division - AG,CA-AG
+Estevan,182,1 Frontier Street,Estevan,SK,S4A 2K9,CA,CA West,49.13125989,-102.922829,1821,,Saskatchewan / Manitoba Division,CA-CF
+Estevan - TT,54,1 Frontier St,Estevan,SK,S4A 2K9,CA,CA West,49.13134927,-102.9219973,543,(306) 636-6320,Transportation SK,"CA-TT,CA-TT"
+Fort McMurray,108,5-360 MCKENZIE BLVD,Fort McMurray,AB,T9H 4C4,CA,CA West,56.66738832,-111.3332484,1081,780-791-6635,Northern Alberta Division,CA-CF
+Fort Nelson,110,4505-55th Street,Fort Nelson,BC,V0C 1R0,CA,CA West,58.80009762,-122.7131256,1101,250-774-4725,Peace Area Division,CA-CF
+Fort St John,109,10344 CLAIRMONT FRG,Fort St. John,BC,V1J 4J1,CA,CA West,56.26293174,-120.9201582,1091,250-785-6762,Peace Area Division,CA-CF
+Fredericton,139,171 Greenview Drive,Hanwell,NB,E3C 0M7,CA,CA East,45.91860678,-66.70691706,1391,506-458-8380,Atlantic Division,CA-CF
+Gisborne,20,67 Awapuni Road,Gisborne,GIS,4010,NZ,New Zealand,-38.66848942,178.0153271,208,06 869 0006,North Island South - CF,"NZ-CF,NZ-AG"
+Gisborne - CF,29,"67 Awapuni Road, Awapuni",Gisborne,NZ,4010,NZ,New Zealand,-38.66858383,178.0150748,298,,North Island South - CF,NZ-CF
+GMA-MH,180,,GMA,QC,,CA,CA East,,,1801,,Western Quebec,CA-CF
+Grand Falls,178,15 Bayley Street,Grand Falls-Windsor,NL,A2A 2Y3,CA,CA East,48.95170253,-55.64201436,1781,,NFLD & Lab,CA-CF
+Grande Prairie,107,7301-102 Street,Clairmont,AB,T8X 5A7,CA,CA West,55.23390445,-118.7974838,1071,780-532-3414,Peace Area Division,CA-CF
+Group Management - AU,7,,,,,AU,Australia,,,77,,,
+Group Management - NZ,81,,,,,NZ,New Zealand,,,818,,Corporate Services - NZ,NZ-CF
+Group Staff - NZ,1015,,,,,NZ,New Zealand,,,10158,,,
+GTA - MH,179,,GTA,ON,,CA,CA Central,,,1791,,South Central Ontario,CA-CF
+GVA-MH,181,,GVA,BC,,CA,CA West,,,1811,,BC Coastal Division,CA-CF
+Hagersville - TT,3,"#4011, Highway #6 South",Hagersville,ON,N0A 1H0,CA,CA Central,42.96968498,-80.04672583,33,(905) 768-1300,Transportation ON,"CA-TT,CA-TT"
+Halifax,142,60 Symonds Road,Bedford,NS,B4B 1H3,CA,CA East,44.72540548,-63.70131293,1421,,Atlantic Division,CA-CF
+Hamilton,1,94 Portland Rd,Hamilton,VIC,3300,AU,Australia,-37.75333748,142.0082636,17,03 5572 3522,Southwest Victoria,"AU-AG,AU-CF"
+Hamilton,26,8 Kells Place,Hamilton,WKO,3204,NZ,New Zealand,-37.80360535,175.2613105,268,07 847 0425,North Island North,"NZ-AG,NZ-CF"
+Hanna - AG,314,302 Pioneer Trail,Hanna,AB,T0J 1P0,CA,CA West,51.63699674,-111.9154315,3141,(403) 854-3334,Central Alberta,CA-AG
+Hastings,13,1318 Omahu Road,Hastings,HKB,4175,NZ,New Zealand,-39.61486215,176.8002754,138,06 879 9907,North Island South - AG,NZ-AG
+Hastings,19,1863 Frankston - Flinders Rd,Hastings,VIC,3915,AU,Australia,-38.28717113,145.1851533,197,(03) 5979 2155,Metro Victoria,AU-AG
+Hastings - CF,28,115 Henderson Road,,HKB,4175,NZ,New Zealand,-39.61486215,176.8002754,288,,North Island South - AG,"NZ-AG,NZ-AG"
+Head Office,100,,Regina,SK,S4P 3R8,CA,CA West,50.44888518,-104.49341,1001,306-791-3334,Head Office Division - CF,CA-CF
+Head Office - Calgary - ADM,300,"6302, 333 - 96 Avenue NE",Calgary,AB,T3K 0S3,CA,CA West,51.1402285,-114.0632552,3001,1-877-567-0339,Head Office Division - AG,CA-AG
+Head Office - East,196,1 Brandt Wy,Regina,SK,S4P 3R8,CA,CA East,50.44883869,-104.4935107,1961,,Head Office - East Division,CA-CF
+Hearst,174,1500 Front Street,Hearst,ON,P0L 1N0,CA,CA Central,49.6872862,-83.64276152,1741,,Northern Ontario,CA-CF
+High River - AG,306,498114 - 121 St East,High River,AB,T1V 1M7,CA,CA West,50.59509901,-113.824995,3061,(403) 652-7797,Southern Alberta,CA-AG
+IFRS Reporting - AU,90,,,,,AU,Australia,,,907,,IFRS Reporting - AU,AU-AG
+IFRS Reporting - NZ,90,,,,,NZ,New Zealand,,,908,,IFRS Reporting - NZ,NZ-AG
+Kamloops,112,499 CHILCOTIN RD,Kamloops,BC,V2C 6X2,CA,CA West,50.66025739,-120.1116054,1121,250-374-2115,Interior BC Division,CA-CF
+Keith,15,Dukes Hwy,Keith,SA,5267,AU,Australia,-36.09023947,140.3466316,157,(08) 8755 0800,Southwest Victoria - CF,"AU-CF,AU-AG"
+Knoxfield,13,14 Rushdale Street,Knoxfield,VIC,3180,AU,Australia,-37.89514137,145.2558619,137,03 9763 8255,Metro Victoria,AU-AG
+Labrador,172,9 Toronto Ave,Goose Bay,NL,A0P 1C0,CA,CA East,53.32731186,-60.41083774,1721,,NFLD & Lab,CA-CF
+Lake Gardens - SRO - ADM,3,7/9-19 St Cedars Grove,Lake Gardens,VIC,3355,AU,Australia,-37.54508576,143.8170471,37,,,
+Launceston,21,4 Australis Dr,Rocherlea,TAS,7248,AU,Australia,-41.37323454,147.1124571,217,,Metro Victoria,AU-AG
+Laval,161,"4500, Autoroute Chomedey",Laval,QC,H7R 6E9,CA,CA East,45.56640466,-73.8232585,1611,,Western Quebec,CA-CF
+Lease & Rental ON - TT,20,,,ON,,CA,CA Central,,,203,,Transportation ON,CA-TT
+Lease & Rental SK - TT,56,,,SK,,CA,CA West,,,563,,Transportation SK,CA-TT
+Leongatha,4,2 Hogans Rd Leongatha South,Leongatha,VIC,3953,AU,Australia,-38.53112876,145.9516527,47,03 5667 6600,Southeast Victoria,"AU-AG,AU-CF"
+Lethbridge,137,#5-90070 Range Road 211,Lethbridge,AB,T1J 5P1,CA,CA West,49.71044441,-112.738922,1371,403-327-4611,Southern Alberta Division,CA-CF
+Lilydale,14,459 Maroondah Hwy,Lilydale,VIC,3140,AU,Australia,-37.75380701,145.3629215,147,,Southeast Victoria,"AU-AG,AU-CF"
+Lloydminster - TT,53,5201 40th Ave,Lloydminster,SK,S9V 2B5,CA,CA West,53.28483967,-109.977603,533,(306) 825-3553,Transportation SK,"CA-TT,CA-TT"
+London,157,16 Royce Court,London,ON,N6E 1L1,CA,CA Central,42.92805933,-81.21001122,1571,,Southwest Ontario,CA-CF
+London - TT,1,31 Buchanan Court,London,ON,N5Z 4P9,CA,CA Central,42.93671737,-81.18500509,13,(519) 686-1000,Transportation ON,"CA-TT,CA-TT"
+Maffra,8,16-18 Johnson St,Maffra,VIC,3860,AU,Australia,-37.96443372,146.9731038,87,03 5147 1122,Southeast Victoria,"AU-AG,AU-CF"
+Manawatu,11,15 Darragh Road,Feilding,MWT,4775,NZ,New Zealand,-40.23527111,175.5674171,118,,North Island South - CF,"NZ-CF,NZ-AG"
+Manawatu - CF,30,15 Darragh Road,Feilding,NZ,4775,NZ,New Zealand,-40.23525473,175.5667519,308,,North Island South - CF,NZ-CF
+Masterton,32,315 High Street,Masterton,WGN,5810,NZ,New Zealand,-40.96291645,175.6132552,328,64 6 377 3009,North Island South - CF,"NZ-CF,NZ-AG"
+Melbourne,22,71 Queens Rd,Melbourne,VIC,3004,AU,Australia,-37.85135652,144.979343,227,,Metro Victoria,AU-AG
+Melfort - AG,324,"Box 699, 2320 Saskatchewan Drive S",Melfort,SK,S0E 1A0,CA,CA West,52.83904927,-104.5897399,3241, (306) 752-9344,Northern Saskatchewan,CA-AG
+Milton,124,8035 Esquesing Line,Milton,ON,L9T 5C8,CA,CA Central,43.5420347,-79.87593311,1241,905-693-0771,South Central Ontario,CA-CF
+Mississauga,153,1655 Britannia Road East,Mississauga,ON,L4W 1S5,CA,CA Central,43.65951967,-79.64390396,1531,,South Central Ontario,CA-CF
+Mississauga - TT,11,1257 Eglinton Avenue E,Mississauga,ON,L4W 1K7,CA,CA Central,43.63364931,-79.62382117,113,(905) 268-2000,Transportation ON,"CA-TT,CA-TT"
+Moncton,140,160 Urquhart Avenue,Monctun,NB,E1H 2R5,CA,CA East,46.12848861,-64.7524245,1401,,Atlantic Division,CA-CF
+Mont Laurier,176,327 Chemin du Golf,Lac-des-Écorces,QC,J0W 1H0,CA,CA East,46.56273955,-75.4045577,1761,,Western Quebec,CA-CF
+Mont-Joli,177,930 Route de l'aéroport,Mont-Joli,QC,G5H 3L3,CA,CA East,48.59884761,-68.21003476,1771,,Eastern Quebec,CA-CF
+Mount Gambier,18,290 Jubilee Highway,Mount Gambier,SA,5291,AU,Australia,-37.80980789,140.7439416,187,(08) 8724 6900,Southwest Victoria - CF,"AU-CF,AU-AG"
+Mount Pearl,170,15 Allston Street,Mount Pearl,NL,A1N 0A3,CA,CA East,47.53274333,-52.82350969,1701,,NFLD & Lab,CA-CF
+Nanaimo,120,1830 SCHOOLHOUSE RD,Nanaimo,BC,V9X 1T4,CA,CA West,49.09968144,-123.8890899,1201,250-754-7735,BC Coastal Division,CA-CF
+Naracoorte,17,230 Smith Street,Naracoorte,SA,5271,AU,Australia,-36.95315926,140.7559082,177,(08) 8760 1800,Southwest Victoria - CF,"AU-CF,AU-AG"
+Nipawin - AG,326,2002 Highway 35 South,Nipawin,SK,S0E 1E0,CA,CA West,53.33545248,-104.0268814,3261,(306) 862-9344,Northern Saskatchewan,CA-AG
+Norfolk - TT,9,1150 Vittoria Rd,Vittoria,ON,N0E 1W0,CA,CA Central,42.74954361,-80.35216315,93,,Transportation ON,"CA-TT,CA-TT"
+North Bay - TT,4,3410 Hwy 11 N,North Bay,ON,P1B 8G3,CA,CA Central,46.36593364,-79.46404326,43,(705) 472-4000,Transportation ON,"CA-TT,CA-TT"
+Northern ON - TT,24,,,ON,,CA,CA Central,,,243,,Transportation ON,"CA-TT,CA-TT"
+Northern SK - TT,61,,,SK,,CA,CA West,,,613,,Transportation SK,"CA-TT,CA-TT"
+Olds - AG,307,4310 - 50th Avenue,Olds,AB,T4H 1A5,CA,CA West,51.7994529,-114.1019066,3071,(403) 556-6961,Central Alberta,CA-AG
+Ottawa,160,190 David Manchester Road,Ottawa,ON,K0A 1L0,CA,CA Central,45.25877038,-75.97290716,1601,,South Central Ontario,CA-CF
+Ottawa - TT,18,2650 Carp Rd.,Ottawa,ON,K0A 1L0,CA,CA Central,45.30120557,-75.97777504,183,(613) 831-2940,Transportation ON,"CA-TT,CA-TT"
+Pakenham,12,85 Bald Hill Road,Pakenham,VIC,3810,AU,Australia,-38.08645611,145.4972637,127,03 5941 5966,Southeast Victoria,"AU-AG,AU-CF"
+PDI - Moncton,192,160 Urquhart Ave,Moncton,NB,E1H 2R5,CA,CA East,46.12844961,-64.75215733,1921,,Head Office Division - CF,CA-CF
+PDI - Regina,126,,Regina,SK,S4P 3E1,CA,CA West,50.52501179,-104.6242578,1261,,Head Office Division - CF,CA-CF
+Penhold - AG,316,37043 Hwy 2 Service Rd NB (northbound),Red Deer,AB,T4E 2C1,CA,CA West,52.15258963,-113.8112413,3161,(403) 343-2238,Central Alberta,CA-AG
+Peterborough,155,1003 Highway 7 East,Peterborough,ON,K9J 7Y8,CA,CA Central,44.29972242,-78.25602865,1551,,South Central Ontario,CA-CF
+Pincher Creek - AG,308,1165 Main Street,Pincher Creek,AB,T0K 1W0,CA,CA West,49.48651205,-113.9283003,3081, (403) 627-4451,Southern Alberta,CA-AG
+Ponoka - AG,303,3600 Highway 2A South,Ponoka,AB,T4J 1J8,CA,CA West,52.66572653,-113.6034854,3031,(403) 783-3337,Central Alberta,CA-AG
+Preventative Maintenance,48,,,,,AU,Australia,,,487,,Corporate Services - AU,AU-AG
+Preventative Maintenance,48,,,,,NZ,New Zealand,,,488,,Corporate Services - NZ,"NZ-AG,NZ-AG"
+Prince Albert - AG,325,Box 2949,Prince Albert,SK,S6V 7M4,CA,CA West,53.17025728,-105.7309446,3251,(306) 763-6686,Northern Saskatchewan,CA-AG
+Prince Albert - TT,57,"3800 5th Ave East, #8",Prince Albert,SK,S6W 0A1,CA,CA West,53.17851425,-105.7383904,573,(306) 557-2067,Transportation SK,"CA-TT,CA-TT"
+Prince George,111,1049 GREAT ST,Prince George,BC,V2N 2K8,CA,CA West,53.87937804,-122.7387006,1111,250-562-1151,Northern BC Division,CA-CF
+Product Support Centre,125,,Regina,SK,,CA,CA West,,,1251,,Head Office Division - CF,CA-CF
+PTD - Atlantic,146,109 Ilsley Avenue#14,Dartmouth,NS,B4B 1H3,CA,CA East,44.72605381,-63.70158357,1461,9022523390,Atlantic Division,CA-CF
+PTD - BC,129,,Surrey,BC,,CA,CA West,,,1291,,BC Coastal Division,CA-CF
+PTD - Engineered Services,144,,Regina,AB,,CA,CA West,,,1441,,Head Office Division - CF,CA-CF
+PTD - Northern Alberta,130,,Edmonton,AB,,CA,CA West,,,1301,,Northern Alberta Division,CA-CF
+PTD - Ontario,185,,,ON,,CA,CA Central,,,1851,,South Central Ontario,CA-CF
+PTD - Peace,135,,Clairmont,AB,T8X 5A7,CA,CA West,55.23427771,-118.793027,1351,,Peace Area Division,CA-CF
+PTD - Quebec,186,,,QC,,CA,CA East,,,1861,,Western Quebec,CA-CF
+PTD - SK/MB,128,,Winnipeg,MB,R3T 5S3,CA,CA West,49.84215133,-97.15899623,1281,,Saskatchewan / Manitoba Division,CA-CF
+PTD - Southern Alberta,127,"Building 224, 2880 45th Ave SE",Calgary,AB,T3J 3C6,CA,CA West,51.14657231,-113.9958374,1271,,Southern Alberta Division,CA-CF
+Pukekohe,24,CNR Paerta Road & Comrie place,Pukekohe,AUK,2120,NZ,New Zealand,-37.18902637,174.9029011,248,09 237 0043,North Island North,"NZ-CF,NZ-CF"
+Red Deer,105,101 Burnt Park Drive,Red Deer,AB,T4P 0J7,CA,CA West,52.3024387,-113.8643729,1051,403-343-7557,Southern Alberta Division,CA-CF
+Regina,101,PO Box 3856,Regina,SK,S4P 3R8,CA,CA West,50.44942587,-104.4916768,1011,306-791-7777,Saskatchewan / Manitoba Division,CA-CF
+Regina - TT,52,1507 Ross Ave E,Regina,SK,S4N 7E5,CA,CA West,50.46508805,-104.5635273,523,(306) 789-7383,Southern SK,"CA-TT,CA-TT"
+Regina Pats,998,1463 Albert Street,Regina,SK,S4R 2R8,CA,CA West,50.45998139,-104.6180546,9980,,,
+Remarketing - BC,134,,,BC,,CA,CA West,,,1341,,BC Coastal Division,CA-CF
+Remarketing - Northern AB,133,,,AB,,CA,CA West,,,1331,,Northern Alberta Division,CA-CF
+Remarketing - Ontario,187,,,ON,,CA,CA Central,,,1871,,South Central Ontario,CA-CF
+Remarketing - Quebec,188,,,QC,,CA,CA East,,,1881,,Western Quebec,CA-CF
+Remarketing - SK/MB,131,,,SK,,CA,CA West,,,1311,,Saskatchewan / Manitoba Division,CA-CF
+Remarketing - Southern AB,132,,,AB,,CA,CA West,,,1321,,Southern Alberta Division,CA-CF
+Rocky View - AG,301,292177 Crosspointe Road,Calgary,AB,T4A 0V3,CA,CA West,51.20284207,-113.973026,3011,(403) 280-2200,Southern Alberta,CA-AG
+Rosthern - AG,322,911 Saskatchewan Street,Rosthern,SK,S0K 3R0,CA,CA West,52.6670574,-106.3244617,3221,(306) 232-4852,Northern Saskatchewan,CA-AG
+Rotorua,15,52 Vaughan Road,Rotorua,BOP,3040,NZ,New Zealand,-38.14876638,176.2728679,158,07 345 5490,North Island South - AG,NZ-AG
+Rotorua - CF,27,250 Te Ngae Road,Rotorua,BOP,3040,NZ,New Zealand,-38.1487495,176.2732756,278,,North Island South - CF,"NZ-CF,NZ-AG"
+Saskatoon,102,800 60 St W,Saskatoon,SK,S7K 3N2,CA,CA West,52.1893703,-106.6878951,1021,306-664-4141,Saskatchewan / Manitoba Division,CA-CF
+Saskatoon - AG,321,"1125 North Service Road, Highway 16 West",Saskatoon,SK,S7K 3J7,CA,CA West,52.21208717,-106.7145023,3211,(306) 933-3303,Northern Saskatchewan,CA-AG
+Saskatoon - Collision - TT,55,2616 Northridge Dr,Saskatoon,SK,S7L 7L8,CA,CA West,52.1692027,-106.6670773,553,,Transportation SK,"CA-TT,CA-TT"
+Saskatoon - TT,51,303 50 St East,Saskatoon,SK,S7K 6C1,CA,CA West,52.16972806,-106.6662106,513,(306) 242-3411,Transportation SK,"CA-TT,CA-TT"
+Silverdale,22,2 Emirali Road,Silverdale,AUK,932,NZ,New Zealand,-36.6143727,174.6668557,228,09 427 9137,North Island North,"NZ-AG,NZ-CF"
+Smithers,117,2905 RR5-TATLOW RD,Smithers,BC,V0J 2N5,CA,CA West,54.76567174,-127.1436838,1171,250-847-3236,Northern BC Division,CA-CF
+South Central ON - TT,22,,,ON,,CA,CA Central,,,223,,Transportation ON,"CA-TT,CA-TT"
+South West ON - TT,23,,,ON,,CA,CA Central,,,233,,Transportation ON,"CA-TT,CA-TT"
+Southern SK - TT,62,,,SK,,CA,CA West,,,623,,Transportation SK,"CA-TT,CA-TT"
+SRO - NZ,80,,,,,NZ,New Zealand,,,808,,,
+St. Agathe,175,4863 Route 117,st-agathe des monts,QC,J8C 2Z8,CA,CA East,46.07111518,-74.31239426,1751,,Western Quebec,CA-CF
+St. Augustin,165,"180, rue Rotterdam",Saint-Augustin-de-Desmaures,QC,G3A 1T3,CA,CA East,46.76115832,-71.45267753,1651,,Eastern Quebec,CA-CF
+St. Georges,166,"3220, 127e Rue Est",Saint-Georges,QC,G5Y 6M5,CA,CA East,46.13160017,-70.64659103,1661,,Eastern Quebec,CA-CF
+Stettler - AG,304,Highway 12 West,Stettler,AB,T0C 2L0,CA,CA West,52.32610244,-112.7609326,3041, (403) 742-4427,Central Alberta,CA-AG
+Stoney Creek,158,760 South Service Road,Stoney Creek,ON,L8E 5M6,CA,CA Central,43.227583,-79.68779672,1581,,Southwest Ontario,CA-CF
+Stoney Creek - TT,14,924 South Service Rd,Stoney Creek,ON,L8E 6A2,CA,CA Central,43.22482685,-79.67219208,143, (905) 643-1214,Transportation ON,"CA-TT,CA-TT"
+Stratford,14,57-63 Juliet Street,Stratford,TKI,4332,NZ,New Zealand,-39.339353,174.2866894,148,06 765 5690,North Island South - CF,"NZ-CF,NZ-AG"
+Sudbury,152,199 Mumford Road,Lively,ON,P3Y 0A4,CA,CA Central,46.42860199,-81.1152192,1521,,Northern Ontario,CA-CF
+Sudbury - TT,19,"184 Fielding Road, Lively",Sudbury,ON,P3Y 1L6,CA,CA Central,46.43686207,-81.09772253,193,(866) 220-6099,Transportation ON,"CA-TT,CA-TT"
+Sunshine,10,588 Ballarat Road,Sunshine,VIC,3020,AU,Australia,-37.77382017,144.8097054,107,03 9363 8100,Metro Victoria,AU-AG
+Surrey,114,9500 190TH ST,Surrey,BC,V4N 3S2,CA,CA West,49.17477255,-122.6954942,1141,604-882-8888,BC Coastal Division,CA-CF
+Swift Current,184,73VR+XV,Swift Current,SK,S9H 3X4,CA,CA West,50.29434309,-107.9091022,1841,,Saskatchewan / Manitoba Division,CA-CF
+Swift Current - TT,93,73VR+XV,Swift Current,SK,S9H 3X4,CA,CA West,50.29434309,-107.9091022,933,,Transportation SK,"CA-TT,CA-TT"
+Sydney,143,667 Keltic Drive,Sydney,NS,B1L 1B6,CA,CA East,46.12792998,-60.25520297,1431,,Atlantic Division,CA-CF
+Te-Puke,19,575 Jellicoe Street,Te-Puke,BOP,3119,NZ,New Zealand,-37.7738176,176.3087903,198,07 282 7235,North Island South - CF,"NZ-CF,NZ-AG"
+Terang,2,Lot 3 Cobden Road,Terang,VIC,3264,AU,Australia,-38.24976312,142.9293296,27,03 5592 2388,Southwest Victoria,"AU-AG,AU-CF"
+Terrace,122,102 - 5221 Keith Avenue,Terrace,BC,V8G 1L2,CA,CA West,54.51346407,-128.6281004,1221,,Northern BC Division,CA-CF
+Thunder Bay,150,1450 West Walsh Street,Thunder Bay,ON,P7E 6H6,CA,CA Central,48.37273986,-89.30133758,1501,,Northern Ontario,CA-CF
+Timmins,151,4087 Highway 101 West,Timmins,ON,P4N 7X8,CA,CA Central,48.45153489,-81.44039328,1511,,Northern Ontario,CA-CF
+Trochu - AG,302,102 - 1st Avenue North,Trochu,AB,T0M 2C0,CA,CA West,51.82417053,-113.2366771,3021,(403) 442-3982,Central Alberta,CA-AG
+Trois-Rivières,167,"2000, rue Sidbec",Trois-Rivières,QC,G8Z 4H1,CA,CA East,46.3321023,-72.58233129,1671,,Western Quebec,CA-CF
+Used International Sales - AG,350,,Calgary,AB,,CA,CA West,,,3501,,Head Office Division - AG,CA-AG
+Val-d'Or,163,"1400, 3rd Avenue Est",Val-d'Or,QC,J9P 0J6,CA,CA Central,48.09946188,-77.73293345,1631,819-824-2345,Northern Ontario,CA-CF
+Value Parts - Moncton,193,160 Urquhart Ave,Moncton,NB,E1H 2R5,CA,CA East,46.12845264,-64.7522349,1931,,Head Office Division - CF,CA-CF
+Value Parts - Prince George,183,1049 GREAT ST,Prince George,BC,V2N 2K8,CA,CA West,53.87937804,-122.7383465,1831,,Head Office Division - CF,CA-CF
+Value Parts - Regina,123,,Regina,SK,S4P 3R8,CA,CA West,50.45147569,-104.4954781,1231,,Head Office Division - CF,CA-CF
+Vapormatic,21,15 Darragh Road,Fielding,WKO,4775,NZ,New Zealand,-40.23526292,175.5670738,218,06 350 0042,North Island North,"NZ-CF,NZ-CF"
+Vars - TT,25,275 Corduroy Rd,Vars,ON,K0A 3H0,CA,CA Central,45.32688284,-75.35533993,253,,Transportation ON,"CA-TT,CA-TT"
+Vernon,118,3104 48TH AVE,Vernon,BC,V1T 3R6,CA,CA West,50.28166635,-119.27218,1181,,Interior BC Division,CA-CF
+Victoria,121,,Saanichton,BC,V8M 1Z9,CA,CA West,48.56670824,-123.4203199,1211,,BC Coastal Division,CA-CF
+Vittoria - TT,211,1150 Vittoria Rd,Vittoria,ON,N0E 1W0,CA,CA Central,42.74962615,-80.35143637,2113,,,
+Vulcan - AG,315,311 Service Road North,Vulcan,AB,T0L 2B0,CA,CA West,50.40874368,-113.2556831,3151,(403) 485-2231,Southern Alberta,CA-AG
+Waipapa,16,1 Klinac Lane,Waipapa,NTL,230,NZ,New Zealand,-35.21164789,173.9184327,168,09 407 0666,North Island North,"NZ-AG,NZ-CF"
+Waipukurau,12,21 Peel Street,Waipukurau,HKB,4200,NZ,New Zealand,-39.99334193,176.5544031,128,06 858 8822,North Island South - CF,"NZ-CF,NZ-AG"
+Watrous - AG,323,"Box 609, Hwy 2 South",Watrous,SK,S0K 0E1,CA,CA West,51.67613797,-105.4777675,3231,(306) 946-3362,Northern Saskatchewan,CA-AG
+Whangarei,17,115 Kioreroa Road,Whangarei,NTL,110,NZ,New Zealand,-35.74484092,174.3253716,178,09 438 7228,North Island North,"NZ-AG,NZ-CF"
+Whangarei - CF,23,"115 Kioreroa Road, Port Whangarei",Whangarei,NZ,110,NZ,New Zealand,-35.74485386,174.3252762,238,,North Island South - CF,NZ-CF
+Whitby - TT,12,1311 Hopkins Street,Whitby,ON,L1N 2C2,CA,CA Central,43.87292315,-78.91632122,123,(905) 665-8888,Transportation ON,"CA-TT,CA-TT"
+Whitehorse,191,111 Jasper Road,Whitehorse,YK,,CA,CA West,,,1911,,Peace Area Division,CA-CF
+Williams Lake,113,4610 RR2 MCRAE ST,Williams Lake,BC,V2G 5E9,CA,CA West,52.16629899,-122.1609214,1131,250-392-2901,Interior BC Division,CA-CF
+Windsor,156,5655 Outer Drive,Windsor,ON,N9G 0C4,CA,CA Central,42.23414291,-82.98436919,1561,,Southwest Ontario,CA-CF
+Windsor - TT,15,3795 Webster Drive,Windsor,ON,N9G 0C4,CA,CA Central,42.23443856,-82.9836871,153,(519) 737-6999,South West ON,"CA-TT,CA-TT"
+Winnipeg,103,3700 McGillivary Blvd,Winnipeg,MB,R3T 5S3,CA,CA West,49.80465965,-97.24342868,1031,204-231-2333,Saskatchewan / Manitoba Division,CA-CF
