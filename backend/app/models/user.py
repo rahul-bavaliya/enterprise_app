@@ -6,10 +6,10 @@ from typing import TYPE_CHECKING
 
 from pydantic import EmailStr
 from sqlalchemy import DateTime
-from sqlmodel import Field, Relationship, SQLModel
+from sqlmodel import Field, SQLModel
 
 if TYPE_CHECKING:
-    from .item import Item
+    pass
 
 
 def get_datetime_utc() -> datetime:
@@ -160,7 +160,6 @@ class User(UserBase, table=True):
         description="Timestamp when the user record was last updated. Empty until first update.",
         schema_extra={"example": "2026-09-23T10:00:00Z"},
     )
-    items: list[Item] = Relationship(back_populates="owner", cascade_delete=True)
 
 
 # Properties to return via API, id is always required

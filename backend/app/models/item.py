@@ -5,10 +5,10 @@ from datetime import UTC, datetime
 from typing import TYPE_CHECKING
 
 from sqlalchemy import DateTime
-from sqlmodel import Field, Relationship, SQLModel
+from sqlmodel import Field, SQLModel
 
 if TYPE_CHECKING:
-    from .user import User
+    pass
 
 
 def get_datetime_utc() -> datetime:
@@ -80,7 +80,6 @@ class Item(ItemBase, table=True):
         description="Identifier of the user who owns the item.",
         schema_extra={"example": "6a5d5a7e-4f8d-4b2a-9bd7-2e8a3f1c5b8a"},
     )
-    owner: User | None = Relationship(back_populates="items")
 
 
 # Properties to return via API, id is always required
