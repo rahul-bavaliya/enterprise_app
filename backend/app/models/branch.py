@@ -1,132 +1,92 @@
 import uuid
 from datetime import UTC, datetime
 
-from pydantic import ConfigDict
-from sqlalchemy import DateTime
+from sqlalchemy import (
+    Column,
+    DateTime,
+    Identity,
+    Index,
+    Integer,
+    Numeric,
+    func,
+)
+from sqlalchemy.dialects.postgresql import UUID
 from sqlmodel import Field, SQLModel
 
 
-def get_datetime_utc() -> datetime:
-    return datetime.now(UTC)
+class Branch(SQLModel, table=True):
+    __tablename__ = "branch"
 
-
-class BranchBase(SQLModel):
-    name: str = Field(
-        index=True,
-        min_length=1,
-        max_length=255,
-        description="Branch name or office label.",
-        schema_extra={"example": "Main Branch"},
-    )
-    location: str | None = Field(
-        default=None,
-        max_length=255,
-        description="Physical location or address of the branch.",
-        schema_extra={"example": "New York, NY"},
-    )
-    is_active: bool = Field(
-        default=True,
-        description="Whether the branch is currently active and available.",
-        schema_extra={"example": True},
-    )
-
-
-class BranchCreate(BranchBase):
-    model_config = ConfigDict(
-        json_schema_extra={
-            "example": {
-                "name": "Main Branch",
-                "location": "New York, NY",
-                "is_active": True,
-            }
-        }
-    )
-
-
-class BranchUpdate(SQLModel):
-    model_config = ConfigDict(
-        json_schema_extra={
-            "example": {
-                "name": "Downtown Branch",
-                "location": "Los Angeles, CA",
-                "is_active": False,
-            }
-        }
-    )
-
-    name: str | None = Field(
-        default=None,
-        min_length=1,
-        max_length=255,
-        description="Updated branch name.",
-        schema_extra={"example": "Downtown Branch"},
-    )
-    location: str | None = Field(
-        default=None,
-        max_length=255,
-        description="Updated branch location.",
-        schema_extra={"example": "Los Angeles, CA"},
-    )
-    is_active: bool | None = Field(
-        default=None,
-        description="Updated active status for the branch.",
-        schema_extra={"example": False},
-    )
-
-
-class Branch(BranchBase, table=True):
+    # Primary Key
     id: uuid.UUID = Field(
         default_factory=uuid.uuid4,
-        primary_key=True,
-        description="Unique identifier for the branch.",
-        schema_extra={"example": "f24bf9d7-c4a1-4448-b895-3ad5f9d3bb4d"},
+        sa_column=Column(UUID(as_uuid=True), primary_key=True, index=True),
     )
-    created_at: datetime | None = Field(
-        default_factory=get_datetime_utc,
-        sa_type=DateTime(timezone=True),  # type: ignore
-        description="Timestamp when the branch record was created.",
-        schema_extra={"example": "2026-09-22T10:00:00Z"},
-    )
-    updated_at: datetime | None = Field(
+
+    # Branch Details
+    name: str = Field(default=..., max_length=255, nullable=False, index=True)
+    number: int | None = Field(
         default=None,
-        sa_type=DateTime(timezone=True),  # type: ignore
-        description="Timestamp when the branch record was last updated. Empty until first update.",
-        schema_extra={"example": "2026-09-23T10:00:00Z"},
+        sa_column=Column(
+            Integer,
+            Identity(start=10001, always=False),
+            unique=True,
+            nullable=False,
+        ),
     )
 
+    # Branch Location Details
+    address1: str | None = Field(default=None, max_length=500)
+    address2: str | None = Field(default=None, max_length=500)
+    city: str = Field(default=..., max_length=255, nullable=False, index=True)
+    postal_code: str = Field(default=..., max_length=20, nullable=False)
+    province: str = Field(default=..., max_length=255, nullable=False, index=True)
+    country: str = Field(default=..., max_length=255, nullable=False, index=True)
+    region: str | None = Field(default=None, max_length=255)
 
-class BranchPublic(BranchBase):
-    id: uuid.UUID = Field(
-        description="Unique identifier for the branch.",
-        schema_extra={"example": "f24bf9d7-c4a1-4448-b895-3ad5f9d3bb4d"},
-    )
-    created_at: datetime | None = Field(
+    latitude: float | None = Field(
         default=None,
-        description="Timestamp when the branch record was created.",
-        schema_extra={"example": "2026-09-22T10:00:00Z"},
+        sa_column=Column(Numeric(precision=9, scale=6), nullable=True),
     )
-    updated_at: datetime | None = Field(
+    longitude: float | None = Field(
         default=None,
-        description="Timestamp when the branch record was last updated.",
-        schema_extra={"example": "2026-09-23T10:00:00Z"},
+        sa_column=Column(Numeric(precision=9, scale=6), nullable=True),
     )
 
+    join_key: int = Field(default=..., nullable=False, unique=True, index=True)
 
-class BranchesPublic(SQLModel):
-    data: list[BranchPublic] = Field(
-        description="List of branches returned by the API.",
-        schema_extra={
-            "example": [
-                {
-                    "id": "f24bf9d7-c4a1-4448-b895-3ad5f9d3bb4d",
-                    "name": "Main Branch",
-                    "location": "New York, NY",
-                    "is_active": True,
-                }
-            ]
-        },
+    # Branch Contact Details
+    phone: str | None = Field(default=None, max_length=15)
+    email: str | None = Field(default=None, max_length=255)
+    website_url: str | None = Field(default=None, max_length=500)
+    contact_person: str | None = Field(default=None, max_length=255)
+
+    # Division & Line of Business Details
+    division_name: str | None = Field(default=None, max_length=255)
+    lob_name: str | None = Field(default=None, max_length=255)
+
+    # Active Status
+    is_active: bool = Field(default=True, nullable=False, index=True)
+
+    # Audit Timestamps
+    created_at: datetime = Field(
+        default_factory=lambda: datetime.now(tz=UTC),
+        sa_column=Column(
+            DateTime(timezone=True),
+            server_default=func.now(),
+            nullable=False,
+        ),
     )
-    count: int = Field(
-        description="Total number of branches in the result set.",
-        schema_extra={"example": 1},
+    updated_at: datetime = Field(
+        default_factory=lambda: datetime.now(UTC),
+        sa_column=Column(DateTime(timezone=True), nullable=False),
     )
+
+    # Advanced Composite Indexes for Multi-tenant/Location Filtering
+    __table_args__: tuple[Index, Index] = (
+        Index("ix_branches_location_composite", "country", "province", "city"),
+        Index("ix_branches_business_div", "lob_name", "division_name"),
+    )
+
+    def __repr__(self) -> str:
+        return f"<Branch(id={self.id}, name={self.name!r}, number={self.number})>"

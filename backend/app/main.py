@@ -12,7 +12,8 @@ FRONTEND_DIR = Path(__file__).parent / "frontend"
 
 
 def custom_generate_unique_id(route: APIRoute) -> str:
-    return f"{route.tags[0]}-{route.name}"
+    tag = route.tags[0] if route.tags else "api"
+    return f"{tag}-{route.name}"
 
 
 if settings.SENTRY_DSN and settings.FASTAPI_ENV != "development":
@@ -33,4 +34,5 @@ app.add_middleware(
 )
 
 app.include_router(api_router, prefix=settings.API_V1_STR)
-app.frontend("/", directory=FRONTEND_DIR)
+if FRONTEND_DIR.exists():
+    app.frontend("/", directory=str(FRONTEND_DIR))

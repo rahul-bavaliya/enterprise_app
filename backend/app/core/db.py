@@ -1,9 +1,6 @@
 from sqlmodel import Session, create_engine, select
 
 from app.core.config import settings
-from app.models import User
-from app.schemas import UserCreate
-from app.services import create_user
 
 engine = create_engine(str(settings.DATABASE_URL), pool_pre_ping=True)
 
@@ -21,6 +18,10 @@ def init_db(session: Session) -> None:
 
     # This works because the models are already imported and registered from app.models
     # SQLModel.metadata.create_all(engine)
+
+    from app.models.user import User
+    from app.schemas.user import UserCreate
+    from app.services.user import create_user
 
     user = session.exec(
         select(User).where(User.email == settings.FIRST_SUPERUSER)

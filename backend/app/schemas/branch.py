@@ -1,106 +1,196 @@
-import uuid
+# app/api/v1/schemas/branch.py
 from datetime import datetime
+from uuid import UUID
 
-from pydantic import ConfigDict
-from sqlmodel import Field, SQLModel
+from pydantic import BaseModel, ConfigDict, EmailStr, Field
 
 
-class BranchBase(SQLModel):
+class BranchBase(BaseModel):
     name: str = Field(
-        index=True,
-        min_length=1,
+        ...,
         max_length=255,
-        description="Branch name or office label.",
-        schema_extra={"example": "Main Branch"},
+        description="Official registered name of the branch office.",
+        examples=["Regina Central Hub"],
     )
-    location: str | None = Field(
-        default=None,
+    number: int | None = Field(
+        None,
+        description="Unique sequential branch identification number (auto-generated if omitted).",
+        examples=[10001],
+    )
+    join_key: int = Field(
+        ...,
+        description="Unique legacy or relational join key used to map external ERP or CSV data.",
+        examples=[501],
+    )
+
+    # Address Details
+    address1: str | None = Field(
+        None,
+        max_length=500,
+        description="Primary street address line of the branch location.",
+        examples=["7 Cochran Dr"],
+    )
+    address2: str | None = Field(
+        None,
+        max_length=500,
+        description="Secondary street address line (e.g., suite, unit, or floor number).",
+        examples=["Second Floor, Suite 200"],
+    )
+    city: str = Field(
+        ...,
+        max_length=500,
+        description="City where the branch is physically located.",
+        examples=["Regina"],
+    )
+    postal_code: str = Field(
+        ...,
+        max_length=20,
+        description="Postal code or ZIP code of the branch location.",
+        examples=["S4N 0T9"],
+    )
+    province: str = Field(
+        ...,
         max_length=255,
-        description="Physical location or address of the branch.",
-        schema_extra={"example": "New York, NY"},
+        description="Province, state, or territory where the branch is located.",
+        examples=["Saskatchewan"],
     )
+    country: str = Field(
+        ...,
+        max_length=255,
+        description="Country where the branch operates.",
+        examples=["Canada"],
+    )
+
+    # Geographic Coordinates
+    latitude: float | None = Field(
+        None,
+        description="Geographic coordinate latitude for mapping and spatial queries.",
+        examples=[50.445210],
+    )
+    longitude: float | None = Field(
+        None,
+        description="Geographic coordinate longitude for mapping and spatial queries.",
+        examples=[-104.618894],
+    )
+    region: str | None = Field(
+        None,
+        max_length=255,
+        description="Broader operational or administrative region name.",
+        examples=["Western Region"],
+    )
+
+    # Contact Details
+    phone: str | None = Field(
+        None,
+        max_length=15,
+        description="Primary contact telephone number for the branch office.",
+        examples=["+13065550199"],
+    )
+    email: EmailStr | None = Field(
+        None,
+        description="Official communication email address for the branch.",
+        examples=["regina.central@example.com"],
+    )
+    website_url: str | None = Field(
+        None,
+        max_length=500,
+        description="Web URL specific to this branch location.",
+        examples=["https://branches.example.com/regina"],
+    )
+    contact_person: str | None = Field(
+        None,
+        max_length=255,
+        description="Full name of the designated manager or primary contact person.",
+        examples=["Jane Doe"],
+    )
+
+    # Division & Line of Business
+    division_name: str | None = Field(
+        None,
+        max_length=255,
+        description="Corporate division or business unit assigned to this branch.",
+        examples=["Commercial Services Division"],
+    )
+    lob_name: str | None = Field(
+        None,
+        max_length=255,
+        description="Associated Line of Business name.",
+        examples=["Field Operations"],
+    )
+
     is_active: bool = Field(
-        default=True,
-        description="Whether the branch is currently active and available.",
-        schema_extra={"example": True},
+        True,
+        description="Operational status flag indicating whether the branch is currently active.",
+        examples=[True],
     )
 
 
 class BranchCreate(BranchBase):
-    model_config = ConfigDict(
-        json_schema_extra={
-            "example": {
-                "name": "Main Branch",
-                "location": "New York, NY",
-                "is_active": True,
-            }
-        }
-    )
+    """Schema for creating a new branch record."""
+
+    pass
 
 
-class BranchUpdate(SQLModel):
-    model_config = ConfigDict(
-        json_schema_extra={
-            "example": {
-                "name": "Downtown Branch",
-                "location": "Los Angeles, CA",
-                "is_active": False,
-            }
-        }
-    )
+class BranchUpdate(BaseModel):
+    """Schema for updating an existing branch record (all fields optional)."""
 
     name: str | None = Field(
-        default=None,
-        min_length=1,
+        None,
         max_length=255,
         description="Updated branch name.",
-        schema_extra={"example": "Downtown Branch"},
+        examples=["Regina North Hub"],
     )
-    location: str | None = Field(
-        default=None,
-        max_length=255,
-        description="Updated branch location.",
-        schema_extra={"example": "Los Angeles, CA"},
+    number: int | None = Field(
+        None, description="Updated branch number.", examples=[10002]
     )
-    is_active: bool | None = Field(
-        default=None,
-        description="Updated active status for the branch.",
-        schema_extra={"example": False},
+    join_key: int | None = Field(None, description="Updated join key.", examples=[502])
+    address1: str | None = Field(
+        None, max_length=500, description="Updated street address."
     )
+    address2: str | None = Field(
+        None, max_length=500, description="Updated suite/unit details."
+    )
+    city: str | None = Field(None, max_length=255, description="Updated city.")
+    postal_code: str | None = Field(
+        None, max_length=20, description="Updated postal code."
+    )
+    province: str | None = Field(
+        None, max_length=255, description="Updated province/state."
+    )
+    country: str | None = Field(None, max_length=255, description="Updated country.")
+    latitude: float | None = Field(None, description="Updated latitude.")
+    longitude: float | None = Field(None, description="Updated longitude.")
+    region: str | None = Field(None, max_length=255, description="Updated region.")
+    phone: str | None = Field(None, max_length=15, description="Updated phone number.")
+    email: EmailStr | None = Field(None, description="Updated email address.")
+    website_url: str | None = Field(
+        None, max_length=500, description="Updated website URL."
+    )
+    contact_person: str | None = Field(
+        None, max_length=255, description="Updated contact person."
+    )
+    division_name: str | None = Field(
+        None, max_length=255, description="Updated division name."
+    )
+    lob_name: str | None = Field(
+        None, max_length=255, description="Updated line of business name."
+    )
+    is_active: bool | None = Field(None, description="Updated active status flag.")
 
 
-class BranchPublic(BranchBase):
-    id: uuid.UUID = Field(
-        description="Unique identifier for the branch.",
-        schema_extra={"example": "f24bf9d7-c4a1-4448-b895-3ad5f9d3bb4d"},
+class BranchResponse(BranchBase):
+    """Schema for returning branch data with database identifiers and audit timestamps."""
+
+    id: UUID = Field(
+        ...,
+        description="Unique database primary key (UUID v4).",
+        examples=["3fa85f64-5717-4562-b3fc-2c963f66afa6"],
     )
-    created_at: datetime | None = Field(
-        default=None,
-        description="Timestamp when the branch record was created.",
-        schema_extra={"example": "2026-09-22T10:00:00Z"},
+    created_at: datetime = Field(
+        ..., description="Timestamp when the branch record was created."
     )
-    updated_at: datetime | None = Field(
-        default=None,
-        description="Timestamp when the branch record was last updated.",
-        schema_extra={"example": "2026-09-23T10:00:00Z"},
+    updated_at: datetime = Field(
+        ..., description="Timestamp when the branch record was last updated."
     )
 
-
-class BranchesPublic(SQLModel):
-    data: list[BranchPublic] = Field(
-        description="List of branches returned by the API.",
-        schema_extra={
-            "example": [
-                {
-                    "id": "f24bf9d7-c4a1-4448-b895-3ad5f9d3bb4d",
-                    "name": "Main Branch",
-                    "location": "New York, NY",
-                    "is_active": True,
-                }
-            ]
-        },
-    )
-    count: int = Field(
-        description="Total number of branches in the result set.",
-        schema_extra={"example": 1},
-    )
+    model_config = ConfigDict(from_attributes=True)

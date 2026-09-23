@@ -1,48 +1,63 @@
-import uuid
-from datetime import UTC, datetime
+# app/api/v1/services/branch.py
+from collections.abc import Sequence
+from uuid import UUID
 
-from sqlmodel import Session, col, func, select
+from sqlalchemy import select
+from sqlalchemy.engine.result import Result
+from sqlalchemy.exc import IntegrityError
+from sqlalchemy.ext.asyncio import AsyncSession
 
-from app.models import Branch
-from app.schemas import BranchCreate, BranchUpdate
-
-
-def create_branch(*, session: Session, branch_in: BranchCreate) -> Branch:
-    db_branch = Branch.model_validate(branch_in)
-    session.add(db_branch)
-    session.commit()
-    session.refresh(db_branch)
-    return db_branch
+from app.models.branch import Branch
+from app.schemas.branch import BranchCreate, BranchUpdate
 
 
-def get_branch_by_id(*, session: Session, branch_id: uuid.UUID) -> Branch | None:
-    return session.get(Branch, branch_id)
+class BranchService:
+    def __init__(self, db: AsyncSession):
+        self.db: AsyncSession = db
 
+    async def get(self, id: UUID) -> Branch | None:
+        return await self.db.get(entity=Branch, ident=id)
 
-def get_branches(
-    *, session: Session, skip: int = 0, limit: int = 100
-) -> tuple[list[Branch], int]:
-    count_statement = select(func.count()).select_from(Branch)
-    count = session.exec(count_statement).one()
-    statement = (
-        select(Branch).order_by(col(Branch.created_at).desc()).offset(skip).limit(limit)
-    )
-    branches = session.exec(statement).all()
-    return branches, count
+    async def get_multi(self, *, skip: int = 0, limit: int = 100) -> Sequence[Branch]:
+        result: Result[tuple[Branch]] = await self.db.execute(
+            statement=select(Branch).offset(offset=skip).limit(limit)
+        )
+        return result.scalars().all()
 
+    async def create(self, *, obj_in: BranchCreate) -> Branch | None:
+        data = obj_in.model_dump()
 
-def update_branch(
-    *, session: Session, db_branch: Branch, branch_in: BranchUpdate
-) -> Branch:
-    update_data = branch_in.model_dump(exclude_unset=True)
-    db_branch.updated_at = datetime.now(UTC)
-    db_branch.sqlmodel_update(update_data)
-    session.add(db_branch)
-    session.commit()
-    session.refresh(db_branch)
-    return db_branch
+        db_obj = Branch(**data)
+        self.db.add(db_obj)
 
+        try:
+            await self.db.commit()
+            await self.db.refresh(db_obj)
+            return db_obj
+        except IntegrityError:
+            # Rollback the failed transaction so the session remains usable for next rows
+            await self.db.rollback()
+            # Depending on your use case, you can either return None,
+            # re-raise a custom HTTPException, or handle upsert logic here.
+            return None
 
-def delete_branch(*, session: Session, db_branch: Branch) -> None:
-    session.delete(db_branch)
-    session.commit()
+    async def update(self, *, db_obj: Branch, obj_in: BranchUpdate | dict) -> Branch:
+        if isinstance(obj_in, dict):
+            update_data = obj_in
+        else:
+            update_data = obj_in.model_dump(exclude_unset=True)
+
+        for field, value in update_data.items():
+            setattr(db_obj, field, value)
+
+        self.db.add(db_obj)
+        await self.db.commit()
+        await self.db.refresh(db_obj)
+        return db_obj
+
+    async def remove(self, *, id: UUID) -> Branch | None:
+        obj = await self.get(id)
+        if obj:
+            await self.db.delete(obj)
+            await self.db.commit()
+        return obj

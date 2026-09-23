@@ -1,11 +1,5 @@
 from .auth import Message, NewPassword, Token, TokenPayload
-from .branch import (
-    BranchBase,
-    BranchCreate,
-    BranchesPublic,
-    BranchPublic,
-    BranchUpdate,
-)
+from .branch import BranchBase, BranchCreate, BranchResponse, BranchUpdate
 from .common import ResponseEnvelope
 from .item import ItemBase, ItemCreate, ItemPublic, ItemsPublic, ItemUpdate
 from .user import (
@@ -27,8 +21,7 @@ __all__ = [
     "ResponseEnvelope",
     "BranchBase",
     "BranchCreate",
-    "BranchPublic",
-    "BranchesPublic",
+    "BranchResponse",
     "BranchUpdate",
     "ItemBase",
     "ItemCreate",
