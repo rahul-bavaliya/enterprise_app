@@ -6,6 +6,20 @@ from .branch import (
     update_branch,
 )
 from .item import create_item, update_item
+from .part import (
+    add_part_to_work_order,
+    create_part,
+    deactivate_part,
+    get_part_by_id,
+    get_part_by_number,
+    get_parts,
+    get_work_order_part_by_id,
+    get_work_order_parts,
+    get_work_order_parts_with_parts,
+    remove_work_order_part,
+    update_part,
+    update_work_order_part,
+)
 from .user import authenticate, create_user, get_user_by_email, update_user
 from .work_order import (
     create_work_order,
@@ -23,6 +37,18 @@ __all__ = [
     "update_branch",
     "create_item",
     "update_item",
+    "add_part_to_work_order",
+    "create_part",
+    "deactivate_part",
+    "get_part_by_id",
+    "get_part_by_number",
+    "get_parts",
+    "get_work_order_part_by_id",
+    "get_work_order_parts",
+    "get_work_order_parts_with_parts",
+    "remove_work_order_part",
+    "update_part",
+    "update_work_order_part",
     "authenticate",
     "create_user",
     "get_user_by_email",

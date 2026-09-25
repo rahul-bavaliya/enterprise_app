@@ -5,7 +5,16 @@ from app.models import User
 from app.schemas import UserCreate
 from app.services import create_user
 
-engine = create_engine(str(settings.DATABASE_URL), pool_pre_ping=True)
+engine = create_engine(
+    str(settings.DATABASE_URL),
+    # Recycle connections before proxies or the server drop idle ones, so
+    # requests never pay for a stale socket.
+    pool_pre_ping=True,
+    pool_size=10,
+    max_overflow=20,
+    pool_recycle=1800,
+    pool_use_lifo=True,
+)
 
 
 # make sure all SQLModel models are imported (app.models) before initializing DB

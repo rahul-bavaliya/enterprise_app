@@ -17,7 +17,11 @@ def test_create_user(client: TestClient, db: Session) -> None:
 
     assert r.status_code == 200
 
-    data = r.json()
+    content = r.json()
+    assert content["success"] is True
+    assert content["message"] == "User created successfully"
+
+    data = content["data"]
 
     user = db.exec(select(User).where(User.id == data["id"])).first()
 

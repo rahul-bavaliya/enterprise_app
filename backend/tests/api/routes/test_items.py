@@ -18,10 +18,10 @@ def test_create_item(
     )
     assert response.status_code == 200
     content = response.json()
-    assert content["title"] == data["title"]
-    assert content["description"] == data["description"]
-    assert "id" in content
-    assert "owner_id" in content
+    assert content["data"]["title"] == data["title"]
+    assert content["data"]["description"] == data["description"]
+    assert "id" in content["data"]
+    assert "owner_id" in content["data"]
 
 
 def test_read_item(
@@ -34,10 +34,10 @@ def test_read_item(
     )
     assert response.status_code == 200
     content = response.json()
-    assert content["title"] == item.title
-    assert content["description"] == item.description
-    assert content["id"] == str(item.id)
-    assert content["owner_id"] == str(item.owner_id)
+    assert content["data"]["title"] == item.title
+    assert content["data"]["description"] == item.description
+    assert content["data"]["id"] == str(item.id)
+    assert content["data"]["owner_id"] == str(item.owner_id)
 
 
 def test_read_item_not_found(
@@ -49,7 +49,7 @@ def test_read_item_not_found(
     )
     assert response.status_code == 404
     content = response.json()
-    assert content["detail"] == "Item not found"
+    assert content["message"] == "Item not found"
 
 
 def test_read_item_not_enough_permissions(
@@ -62,7 +62,7 @@ def test_read_item_not_enough_permissions(
     )
     assert response.status_code == 403
     content = response.json()
-    assert content["detail"] == "Not enough permissions"
+    assert content["message"] == "Not enough permissions"
 
 
 def test_read_items(
@@ -76,7 +76,7 @@ def test_read_items(
     )
     assert response.status_code == 200
     content = response.json()
-    assert len(content["data"]) >= 2
+    assert len(content["data"]["data"]) >= 2
 
 
 def test_update_item(
@@ -91,10 +91,10 @@ def test_update_item(
     )
     assert response.status_code == 200
     content = response.json()
-    assert content["title"] == data["title"]
-    assert content["description"] == data["description"]
-    assert content["id"] == str(item.id)
-    assert content["owner_id"] == str(item.owner_id)
+    assert content["data"]["title"] == data["title"]
+    assert content["data"]["description"] == data["description"]
+    assert content["data"]["id"] == str(item.id)
+    assert content["data"]["owner_id"] == str(item.owner_id)
 
 
 def test_update_item_not_found(
@@ -108,7 +108,7 @@ def test_update_item_not_found(
     )
     assert response.status_code == 404
     content = response.json()
-    assert content["detail"] == "Item not found"
+    assert content["message"] == "Item not found"
 
 
 def test_update_item_not_enough_permissions(
@@ -123,7 +123,7 @@ def test_update_item_not_enough_permissions(
     )
     assert response.status_code == 403
     content = response.json()
-    assert content["detail"] == "Not enough permissions"
+    assert content["message"] == "Not enough permissions"
 
 
 def test_delete_item(
@@ -148,7 +148,7 @@ def test_delete_item_not_found(
     )
     assert response.status_code == 404
     content = response.json()
-    assert content["detail"] == "Item not found"
+    assert content["message"] == "Item not found"
 
 
 def test_delete_item_not_enough_permissions(
@@ -161,4 +161,4 @@ def test_delete_item_not_enough_permissions(
     )
     assert response.status_code == 403
     content = response.json()
-    assert content["detail"] == "Not enough permissions"
+    assert content["message"] == "Not enough permissions"
