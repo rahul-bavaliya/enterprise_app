@@ -8,10 +8,10 @@ from app.models import (
 )
 from app.services import (
     create_work_order,
-    delete_work_order,
     get_work_order_by_id,
     get_work_orders,
     update_work_order,
+    void_work_order,
 )
 from tests.utils.utils import random_lower_string
 
@@ -52,10 +52,16 @@ def test_get_work_orders_filters_by_status(db: Session) -> None:
     assert all(wo.id != created.id for wo in closed_orders)
 
 
-def test_delete_work_order(db: Session) -> None:
+def test_void_work_order_retains_the_record(db: Session) -> None:
     work_order = create_work_order(
         session=db,
         work_order_in=WorkOrderCreate(title=random_lower_string()),
     )
-    delete_work_order(session=db, db_work_order=work_order)
-    assert get_work_order_by_id(session=db, work_order_id=work_order.id) is None
+    voided = void_work_order(session=db, db_work_order=work_order)
+
+    assert voided.status == WorkOrderStatus.VOIDED
+    assert voided.updated_at is not None
+    # The row must survive a void so the history stays auditable.
+    persisted = get_work_order_by_id(session=db, work_order_id=work_order.id)
+    assert persisted is not None
+    assert persisted.status == WorkOrderStatus.VOIDED

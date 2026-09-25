@@ -163,7 +163,7 @@ def test_update_work_order_not_found(
     assert response.json()["detail"] == "Work order not found"
 
 
-def test_delete_work_order(
+def test_void_work_order(
     client: TestClient, superuser_token_headers: dict[str, str], db: Session
 ) -> None:
     work_order = create_random_work_order(db)
@@ -174,10 +174,19 @@ def test_delete_work_order(
     assert response.status_code == 200
     content = response.json()
     assert content["success"] is True
-    assert content["message"] == "Work order deleted successfully"
+    assert content["message"] == "Work order voided successfully"
+    assert content["data"]["status"] == "voided"
+
+    # The record must still exist in the database after being voided.
+    follow_up = client.get(
+        f"{settings.API_V1_STR}/work-orders/{work_order.id}",
+        headers=superuser_token_headers,
+    )
+    assert follow_up.status_code == 200
+    assert follow_up.json()["data"]["status"] == "voided"
 
 
-def test_delete_work_order_not_found(
+def test_void_work_order_not_found(
     client: TestClient, superuser_token_headers: dict[str, str]
 ) -> None:
     response = client.delete(
@@ -188,7 +197,7 @@ def test_delete_work_order_not_found(
     assert response.json()["detail"] == "Work order not found"
 
 
-def test_delete_work_order_not_enough_permissions(
+def test_void_work_order_not_enough_permissions(
     client: TestClient, normal_user_token_headers: dict[str, str], db: Session
 ) -> None:
     work_order = create_random_work_order(db)

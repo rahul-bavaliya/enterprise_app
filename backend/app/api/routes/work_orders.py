@@ -13,10 +13,12 @@ from app.schemas import (
 from app.services.branch import get_branch_by_id
 from app.services.work_order import (
     create_work_order,
-    delete_work_order,
     get_work_order_by_id,
     get_work_orders,
     update_work_order,
+)
+from app.services.work_order import (
+    void_work_order as void_work_order_service,
 )
 
 EXAMPLE_WORK_ORDER = {
@@ -241,8 +243,26 @@ def update_work_order_route(
     )
 
 
-@router.delete("/{id}", response_model=ResponseEnvelope[None])
-def delete_work_order_route(
+@router.delete(
+    "/{id}",
+    response_model=ResponseEnvelope[WorkOrderPublic],
+    summary="Void a work order",
+    responses={
+        200: {
+            "description": "Work order voided. The record is retained for auditing.",
+            "content": {
+                "application/json": {
+                    "example": {
+                        "success": True,
+                        "data": {**EXAMPLE_WORK_ORDER, "status": "voided"},
+                        "message": "Work order voided successfully",
+                    }
+                }
+            },
+        }
+    },
+)
+def void_work_order(
     session: SessionDep,
     current_user: CurrentUser,
     id: uuid.UUID,
@@ -252,5 +272,9 @@ def delete_work_order_route(
     work_order = get_work_order_by_id(session=session, work_order_id=id)
     if not work_order:
         raise HTTPException(status_code=404, detail="Work order not found")
-    delete_work_order(session=session, db_work_order=work_order)
-    return ResponseEnvelope(success=True, message="Work order deleted successfully")
+    voided = void_work_order_service(session=session, db_work_order=work_order)
+    return ResponseEnvelope(
+        success=True,
+        data=WorkOrderPublic.model_validate(voided),
+        message="Work order voided successfully",
+    )

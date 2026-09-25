@@ -4,7 +4,7 @@ from datetime import UTC, datetime
 
 from sqlmodel import Session, col, func, select
 
-from app.models import WorkOrder
+from app.models import WorkOrder, WorkOrderStatus
 from app.schemas import WorkOrderCreate, WorkOrderUpdate
 
 
@@ -61,6 +61,15 @@ def update_work_order(
     return db_work_order
 
 
-def delete_work_order(*, session: Session, db_work_order: WorkOrder) -> None:
-    session.delete(db_work_order)
+def void_work_order(*, session: Session, db_work_order: WorkOrder) -> WorkOrder:
+    """Void a work order.
+
+    The record is kept for auditing purposes; only its status changes to
+    ``VOIDED`` and its ``updated_at`` timestamp is refreshed.
+    """
+    db_work_order.status = WorkOrderStatus.VOIDED
+    db_work_order.updated_at = datetime.now(UTC)
+    session.add(db_work_order)
     session.commit()
+    session.refresh(db_work_order)
+    return db_work_order

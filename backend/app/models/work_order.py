@@ -19,6 +19,7 @@ class WorkOrderStatus(StrEnum):
     IN_PROGRESS = "in_progress"
     COMPLETED = "completed"
     CANCELLED = "cancelled"
+    VOIDED = "voided"
 
 
 class WorkOrderPriority(StrEnum):
