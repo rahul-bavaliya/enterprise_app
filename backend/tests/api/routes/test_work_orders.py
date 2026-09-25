@@ -52,7 +52,7 @@ def test_create_work_order_invalid_branch(
         json=data,
     )
     assert response.status_code == 404
-    assert response.json()["detail"] == "Branch not found"
+    assert response.json()["message"] == "Branch not found"
 
 
 def test_read_work_order(
@@ -78,7 +78,7 @@ def test_read_work_order_not_found(
         headers=superuser_token_headers,
     )
     assert response.status_code == 404
-    assert response.json()["detail"] == "Work order not found"
+    assert response.json()["message"] == "Work order not found"
 
 
 def test_read_work_orders(
@@ -130,7 +130,7 @@ def test_read_work_orders_not_enough_permissions(
         headers=normal_user_token_headers,
     )
     assert response.status_code == 403
-    assert response.json()["detail"] == "Not enough permissions"
+    assert response.json()["message"] == "Not enough permissions"
 
 
 def test_update_work_order(
@@ -160,7 +160,7 @@ def test_update_work_order_not_found(
         json={"title": "Updated work order"},
     )
     assert response.status_code == 404
-    assert response.json()["detail"] == "Work order not found"
+    assert response.json()["message"] == "Work order not found"
 
 
 def test_void_work_order(
@@ -194,7 +194,7 @@ def test_void_work_order_not_found(
         headers=superuser_token_headers,
     )
     assert response.status_code == 404
-    assert response.json()["detail"] == "Work order not found"
+    assert response.json()["message"] == "Work order not found"
 
 
 def test_void_work_order_not_enough_permissions(
@@ -206,4 +206,4 @@ def test_void_work_order_not_enough_permissions(
         headers=normal_user_token_headers,
     )
     assert response.status_code == 403
-    assert response.json()["detail"] == "Not enough permissions"
+    assert response.json()["message"] == "Not enough permissions"
