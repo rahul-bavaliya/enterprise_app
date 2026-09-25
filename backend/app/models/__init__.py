@@ -22,6 +22,16 @@ from .user import (
     UserUpdate,
     UserUpdateMe,
 )
+from .work_order import (
+    WorkOrder,
+    WorkOrderBase,
+    WorkOrderCreate,
+    WorkOrderPriority,
+    WorkOrderPublic,
+    WorkOrdersPublic,
+    WorkOrderStatus,
+    WorkOrderUpdate,
+)
 
 __all__ = [
     "SQLModel",
@@ -42,6 +52,14 @@ __all__ = [
     "ItemPublic",
     "ItemsPublic",
     "ItemUpdate",
+    "WorkOrder",
+    "WorkOrderBase",
+    "WorkOrderCreate",
+    "WorkOrderPriority",
+    "WorkOrderPublic",
+    "WorkOrdersPublic",
+    "WorkOrderStatus",
+    "WorkOrderUpdate",
     "UpdatePassword",
     "User",
     "UserBase",

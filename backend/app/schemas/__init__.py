@@ -18,6 +18,15 @@ from .user import (
     UserUpdate,
     UserUpdateMe,
 )
+from .work_order import (
+    WorkOrderBase,
+    WorkOrderCreate,
+    WorkOrderPriority,
+    WorkOrderPublic,
+    WorkOrdersPublic,
+    WorkOrderStatus,
+    WorkOrderUpdate,
+)
 
 __all__ = [
     "Message",
@@ -35,6 +44,13 @@ __all__ = [
     "ItemPublic",
     "ItemsPublic",
     "ItemUpdate",
+    "WorkOrderBase",
+    "WorkOrderCreate",
+    "WorkOrderPriority",
+    "WorkOrderPublic",
+    "WorkOrdersPublic",
+    "WorkOrderStatus",
+    "WorkOrderUpdate",
     "UpdatePassword",
     "UserBase",
     "UserCreate",

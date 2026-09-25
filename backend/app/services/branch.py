@@ -1,4 +1,5 @@
 import uuid
+from collections.abc import Sequence
 from datetime import UTC, datetime
 
 from sqlmodel import Session, col, func, select
@@ -21,7 +22,7 @@ def get_branch_by_id(*, session: Session, branch_id: uuid.UUID) -> Branch | None
 
 def get_branches(
     *, session: Session, skip: int = 0, limit: int = 100
-) -> tuple[list[Branch], int]:
+) -> tuple[Sequence[Branch], int]:
     count_statement = select(func.count()).select_from(Branch)
     count = session.exec(count_statement).one()
     statement = (
