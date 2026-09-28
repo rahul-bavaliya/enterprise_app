@@ -2,14 +2,29 @@ from __future__ import annotations
 
 import uuid
 from datetime import UTC, datetime
+from enum import StrEnum
 
 from pydantic import EmailStr
 from sqlalchemy import DateTime
+from sqlalchemy import Enum as SAEnum
 from sqlmodel import Field, SQLModel
 
 
 def get_datetime_utc() -> datetime:
     return datetime.now(UTC)
+
+
+class UserRole(StrEnum):
+    """Operational role a user holds, which decides what they may do.
+
+    ``ADMIN`` is the branch-wide manager, ``DISPATCHER`` raises and schedules
+    work, and ``TECHNICIAN`` carries out and records work on the jobs assigned
+    to them. Superusers bypass every role check.
+    """
+
+    ADMIN = "admin"
+    DISPATCHER = "dispatcher"
+    TECHNICIAN = "technician"
 
 
 # Shared properties
@@ -36,6 +51,31 @@ class UserBase(SQLModel):
         max_length=255,
         description="Display name of the user.",
         schema_extra={"example": "John Doe"},
+    )
+    role: UserRole = Field(
+        default=UserRole.TECHNICIAN,
+        sa_type=SAEnum(  # type: ignore
+            UserRole,
+            name="userrole",
+            values_callable=lambda e: [m.value for m in e],
+        ),
+        description=(
+            "Operational role. Admins manage their branch, dispatchers raise "
+            "and schedule work, technicians carry out assigned work."
+        ),
+        schema_extra={"example": UserRole.TECHNICIAN},
+    )
+    branch_id: uuid.UUID | None = Field(
+        default=None,
+        foreign_key="branch.id",
+        index=True,
+        nullable=True,
+        ondelete="SET NULL",
+        description=(
+            "Branch the user belongs to. Admins and dispatchers may only act "
+            "on work orders raised at this branch."
+        ),
+        schema_extra={"example": "f24bf9d7-c4a1-4448-b895-3ad5f9d3bb4d"},
     )
 
 
@@ -99,6 +139,16 @@ class UserUpdate(SQLModel):
         max_length=128,
         description="New password to set for the user.",
         schema_extra={"example": "AnotherStrongPass!456"},
+    )
+    role: UserRole | None = Field(
+        default=None,
+        description="Updated operational role of the user.",
+        schema_extra={"example": UserRole.DISPATCHER},
+    )
+    branch_id: uuid.UUID | None = Field(
+        default=None,
+        description="Updated branch the user belongs to.",
+        schema_extra={"example": "f24bf9d7-c4a1-4448-b895-3ad5f9d3bb4d"},
     )
 
 

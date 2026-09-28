@@ -5,6 +5,18 @@ from .branch import (
     get_branches,
     update_branch,
 )
+from .customer import (
+    create_customer,
+    create_fleet,
+    deactivate_customer,
+    deactivate_fleet,
+    get_customer_by_id,
+    get_customers,
+    get_fleet_by_id,
+    get_fleets,
+    update_customer,
+    update_fleet,
+)
 from .item import create_item, update_item
 from .part import (
     add_part_to_work_order,
@@ -22,9 +34,14 @@ from .part import (
 )
 from .user import authenticate, create_user, get_user_by_email, update_user
 from .work_order import (
+    add_work_order_note,
+    close_work_order,
+    compute_work_order_totals,
     create_work_order,
     get_work_order_by_id,
+    get_work_order_events,
     get_work_orders,
+    reopen_work_order,
     update_work_order,
     void_work_order,
 )
@@ -37,6 +54,16 @@ __all__ = [
     "update_branch",
     "create_item",
     "update_item",
+    "create_customer",
+    "create_fleet",
+    "deactivate_customer",
+    "deactivate_fleet",
+    "get_customer_by_id",
+    "get_customers",
+    "get_fleet_by_id",
+    "get_fleets",
+    "update_customer",
+    "update_fleet",
     "add_part_to_work_order",
     "create_part",
     "deactivate_part",
@@ -53,9 +80,14 @@ __all__ = [
     "create_user",
     "get_user_by_email",
     "update_user",
+    "add_work_order_note",
+    "close_work_order",
+    "compute_work_order_totals",
     "create_work_order",
     "get_work_order_by_id",
+    "get_work_order_events",
     "get_work_orders",
+    "reopen_work_order",
     "update_work_order",
     "void_work_order",
 ]

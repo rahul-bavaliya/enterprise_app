@@ -1,12 +1,8 @@
-from typing import Generic, TypeVar
-
 from pydantic import ConfigDict
 from sqlmodel import Field, SQLModel
 
-T = TypeVar("T")
 
-
-class ResponseEnvelope(SQLModel, Generic[T]):
+class ResponseEnvelope[T](SQLModel):
     model_config = ConfigDict(
         json_schema_extra={
             "example": {

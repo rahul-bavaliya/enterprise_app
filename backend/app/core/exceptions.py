@@ -52,6 +52,11 @@ class ValidationException(AppException):
     default_message = "Request failed validation"
 
 
+class ForbiddenException(AppException):
+    status_code = status.HTTP_403_FORBIDDEN
+    default_message = "Not enough permissions"
+
+
 def _envelope(*, status_code: int, message: str, data: Any = None) -> JSONResponse:
     payload = ResponseEnvelope(success=False, data=data, message=message)
     return JSONResponse(

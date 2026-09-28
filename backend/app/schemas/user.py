@@ -2,9 +2,18 @@ from __future__ import annotations
 
 import uuid
 from datetime import datetime
+from enum import StrEnum
 
 from pydantic import ConfigDict, EmailStr
 from sqlmodel import Field, SQLModel
+
+
+class UserRole(StrEnum):
+    """Operational role a user holds, which decides what they may do."""
+
+    ADMIN = "admin"
+    DISPATCHER = "dispatcher"
+    TECHNICIAN = "technician"
 
 
 class UserBase(SQLModel):
@@ -31,6 +40,22 @@ class UserBase(SQLModel):
         description="Display name of the user.",
         schema_extra={"example": "John Doe"},
     )
+    role: UserRole = Field(
+        default=UserRole.TECHNICIAN,
+        description=(
+            "Operational role. Admins manage their branch, dispatchers raise "
+            "and schedule work, technicians carry out assigned work."
+        ),
+        schema_extra={"example": UserRole.TECHNICIAN},
+    )
+    branch_id: uuid.UUID | None = Field(
+        default=None,
+        description=(
+            "Branch the user belongs to. Admins and dispatchers may only act "
+            "on work orders raised at this branch."
+        ),
+        schema_extra={"example": "f24bf9d7-c4a1-4448-b895-3ad5f9d3bb4d"},
+    )
 
 
 class UserCreate(UserBase):
@@ -42,6 +67,7 @@ class UserCreate(UserBase):
                 "full_name": "John Doe",
                 "is_active": True,
                 "is_superuser": False,
+                "role": "technician",
             }
         }
     )
@@ -123,6 +149,16 @@ class UserUpdate(SQLModel):
         max_length=128,
         description="New password to set for the user.",
         schema_extra={"example": "AnotherStrongPass!456"},
+    )
+    role: UserRole | None = Field(
+        default=None,
+        description="Updated operational role of the user.",
+        schema_extra={"example": UserRole.DISPATCHER},
+    )
+    branch_id: uuid.UUID | None = Field(
+        default=None,
+        description="Updated branch the user belongs to.",
+        schema_extra={"example": "f24bf9d7-c4a1-4448-b895-3ad5f9d3bb4d"},
     )
 
 

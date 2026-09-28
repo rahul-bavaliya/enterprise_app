@@ -63,15 +63,18 @@ def test_validation_error_is_enveloped(
 def test_permission_error_is_enveloped(
     client: TestClient, normal_user_token_headers: dict[str, str]
 ) -> None:
+    # User administration stays superuser-only, so it exercises the 403 envelope.
+    # Work-order routes are branch-scoped by role instead; see
+    # test_work_order_permissions.py.
     response = client.get(
-        f"{settings.API_V1_STR}/work-orders/", headers=normal_user_token_headers
+        f"{settings.API_V1_STR}/users/", headers=normal_user_token_headers
     )
     assert response.status_code == 403
     content = response.json()
     assert content == {
         "success": False,
         "data": None,
-        "message": "Not enough permissions",
+        "message": "The user doesn't have enough privileges",
     }
 
 
