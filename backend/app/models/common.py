@@ -1,11 +1,7 @@
-from typing import Generic, TypeVar
-
 from sqlmodel import Field, SQLModel
 
-T = TypeVar("T")
 
-
-class ResponseEnvelope(SQLModel, Generic[T]):
+class ResponseEnvelope[T](SQLModel):
     success: bool = Field(
         default=True,
         description="Whether the request completed successfully.",
